@@ -14,4 +14,4 @@
 
 ## enkh
 
-## tulllga init
+## tulllga
