@@ -1,4 +1,5 @@
 "# accountingFullDev"
+## batmandah
 
 ## Enkh-amgalan init
 
@@ -14,4 +15,8 @@
 
 ## enkh
 
-## tulllga init
+## Ganerdene init
+
+## orgil init
+
+## tulllga
