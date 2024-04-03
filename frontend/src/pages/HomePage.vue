@@ -1,5 +1,5 @@
 <template>
-  <hot-table :data="data" :rowHeaders="true" :colHeaders="true"></hot-table>
+  <hot-table :settings="settings" licenseKey="non-commercial-and-evaluation" :data="data" :rowHeaders="true" :colHeaders="true"></hot-table>
 </template>
 
 <script>
