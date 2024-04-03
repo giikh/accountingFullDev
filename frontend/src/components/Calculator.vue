@@ -10,7 +10,7 @@
       bg-lime-500
     "
   >
-    <Header text="Calculator using Vue.js" />
+    <Header :text="currentValue || 0 " />
     <div class="bg-indigo-300 w-80 p-5 rounded space-y-4 max-w-[300px]">
       <div class="bg-white p-4 rounded text-xl font-medium text-right">
         {{ currentValue || 0 }}
