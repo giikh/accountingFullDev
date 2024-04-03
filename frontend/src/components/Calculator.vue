@@ -7,7 +7,7 @@
       py-8
       gap-12
       min-h-screen
-      bg-indigo-800
+      bg-lime-500
     "
   >
     <Header text="Calculator using Vue.js" />
