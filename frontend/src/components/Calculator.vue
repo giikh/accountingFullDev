@@ -25,7 +25,7 @@
             py-2
             hover:bg-slate-300
             transition-all
-            duration-75
+            duration-75         
           "
           :class="{
             'bg-slate-200': ['C', '*', '/', '-', '+', '%', '=', '+/-'].includes(
