@@ -5,6 +5,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "./pages/HomePage.vue";
 import TsalinHuls from "./pages/TsalinHuls.vue";
 import BaraaMaterial from "./pages/BaraaMaterial.vue";
+import SheetA from "./pages/SheetA.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -39,12 +40,12 @@ const router = createRouter({
     //     component: HomePage,
     //     meta: { title: "Нүүр" },
     //   },
-    //   {
-    //     path: "/5",
-    //     name: "Home",
-    //     component: HomePage,
-    //     meta: { title: "Нүүр" },
-    //   },{
+      {
+        path: "/sheet",
+        name: "SheetA",
+        component: SheetA,
+        meta: { title: "Sheet1" },
+      } //,{
     //     path: "/6",
     //     name: "Home",
     //     component: HomePage,
