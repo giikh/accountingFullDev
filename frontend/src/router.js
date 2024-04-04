@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage.vue";
 import TsalinHuls from "./pages/TsalinHuls.vue";
 import BaraaMaterial from "./pages/BaraaMaterial.vue";
 import SheetA from "./pages/SheetA.vue";
+import JournalA from "./pages/JournalA.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -45,12 +46,12 @@ const router = createRouter({
         name: "SheetA",
         component: SheetA,
         meta: { title: "Sheet1" },
-      } //,{
-    //     path: "/6",
-    //     name: "Home",
-    //     component: HomePage,
-    //     meta: { title: "Нүүр" },
-    //   }
+      } ,{
+         path: "/journal",
+         name: "Yrunhiijurnal",
+         component: JournalA,
+         meta: { title: "jurnal" },
+       }
   ],
   scrollBehavior(to) {
     if (to.hash) {
