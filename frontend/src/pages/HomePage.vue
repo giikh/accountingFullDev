@@ -1,7 +1,7 @@
 <template>
-  <h1 href="http://boyo.mn/HomePage/">HomePage</h1>
- <h2 href="http://boyo.mn/salary/">Salary</h2> 
- <h2 href="http://boyo.mn/goods/">Inventory</h2> 
+  <h1><a href="http://boyo.mn/HomePage/">HomePage</a></h1>
+ <h2><a href="http://boyo.mn/salary/">Цалингийн хүснэгт</a></h2> 
+ <h2><a href="http://boyo.mn/goods/">Бараа материал</a></h2> 
 </template>
 
 <style>
