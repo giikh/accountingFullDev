@@ -1,4 +1,5 @@
 <template>
+  <h1>HelloWorld</h1>
   <hot-table
     :settings="settings"
     licenseKey="non-commercial-and-evaluation"
