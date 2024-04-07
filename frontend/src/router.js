@@ -7,6 +7,7 @@ import TsalinHuls from "./pages/TsalinHuls.vue";
 import BaraaMaterial from "./pages/BaraaMaterial.vue";
 import SheetA from "./pages/SheetA.vue";
 import JournalA from "./pages/JournalA.vue";
+import GuilbalA from "./pages/GuilbalA.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -51,7 +52,12 @@ const router = createRouter({
          name: "Yrunhiijurnal",
          component: JournalA,
          meta: { title: "jurnal" },
-       }
+       },{
+        path: "/guilbal",
+        name: "Guilbal",
+        component: GuilbalA,
+        meta: { title: "guilbal" },
+      }
   ],
   scrollBehavior(to) {
     if (to.hash) {
