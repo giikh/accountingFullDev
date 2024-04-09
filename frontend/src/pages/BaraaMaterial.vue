@@ -23,7 +23,7 @@ export default defineComponent({
       data: [
         [
           "БАРАА МАТЕРИАЛЫН ТАЙЛАН",
-          "",
+
           "",
           "",
           "",
@@ -37,18 +37,18 @@ export default defineComponent({
           "",
         ],
         [
-          "Д.д",
-          "Нэр",
-          "Үндсэн цалин",
-          "Ажилбал зохих цаг",
-          "Ажилласан цаг",
-          "Тооцсон",
-          "НДШ",
-          "Татвар тооцох орлого",
-          "ХАОАТ",
-          "Урьдчилгаа",
-          "Нийт олгох",
-          "Байгууллагаас олгох НДШ",
+          "",
+          "",
+          "",
+          "2019 он",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
         ],
         [
           1,
@@ -360,8 +360,10 @@ export default defineComponent({
       hotSettings: {
         mergeCells: [
     { row: 0, col: 0, rowspan: 1, colspan: 13 },
-    // { row: 3, col: 4, rowspan: 2, colspan: 2 },
+    { row: 1, col: 1, rowspan: 1, colspan: 3 },
+    { row: 1, col: 2, rowspan: 1, colspan: 2 },
     // { row: 5, col: 6, rowspan: 3, colspan: 3 }
+  
   ],
   cell: [
     { row: 0, col: 0, className: 'htCenter'}

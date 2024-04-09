@@ -8,6 +8,7 @@ import BaraaMaterial from "./pages/BaraaMaterial.vue";
 import SheetA from "./pages/SheetA.vue";
 import JournalA from "./pages/JournalA.vue";
 import GuilbalA from "./pages/GuilbalA.vue";
+import Hynalt from "./pages/HynaltHu.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -57,6 +58,12 @@ const router = createRouter({
         name: "Guilbal",
         component: GuilbalA,
         meta: { title: "guilbal" },
+      },
+      {
+        path: "/hynalt",
+        name: "Hynalt",
+        component: Hynalt,
+        meta: { title: "hynalt" },
       }
   ],
   scrollBehavior(to) {
