@@ -23,7 +23,7 @@ export default defineComponent({
       data: [
         [
           "БАРАА МАТЕРИАЛЫН ТАЙЛАН",
-          "",
+
           "",
           "",
           "",
