@@ -5,7 +5,8 @@
  <h2><a href="http://boyo.mn/sheet/">Sheet1</a></h2>
  <h2><a href="http://boyo.mn/journal/">Ерөнхий журнал</a></h2>
  <h2><a href="http://boyo.mn/guilbal/">Гүйлгээ баланс</a></h2>
- <h2><a href="http://boyo.mn/hynalt/">dfghjk</a></h2>
+ <h2><a href="http://boyo.mn/ct_1/">CT-1</a></h2>
+ <h2><a href="http://boyo.mn/hynalt/">Хяналт</a></h2>
 </template>
 
 
