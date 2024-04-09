@@ -1,10 +1,11 @@
 <template>
-  <hot-table
-    :settings="settings"
-    licenseKey="non-commercial-and-evaluation"
-    :data="data"
-    :rowHeaders="true"
-    :colHeaders="true"></hot-table>
+  <div id="example">
+    <hot-table
+      ref="hotTableComponent"
+      :data="data"
+      :settings="hotSettings"
+    ></hot-table>
+  </div>
 </template>
 
 <script>
@@ -20,6 +21,21 @@ export default defineComponent({
   data() {
     return {
       data: [
+        [
+          "БАРАА МАТЕРИАЛЫН ТАЙЛАН",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+        ],
         [
           "Д.д",
           "Нэр",
@@ -341,6 +357,58 @@ export default defineComponent({
           734273.95,
         ],
       ],
+      hotSettings: {
+        mergeCells: [
+    { row: 0, col: 0, rowspan: 1, colspan: 13 },
+    // { row: 3, col: 4, rowspan: 2, colspan: 2 },
+    // { row: 5, col: 6, rowspan: 3, colspan: 3 }
+  ],
+  cell: [
+    { row: 0, col: 0, className: 'htCenter'}
+  ],
+        // height: 450,
+        // dropdownMenu: true,
+        // hiddenColumns: {
+        //   indicators: true,
+        // },
+        // contextMenu: true,
+        // multiColumnSorting: true,
+        // filters: true,
+        // rowHeaders: true,
+        // colWidths: [140, 126, 192, 100, 100, 90, 90, 110, 97],
+        // colHeaders: [
+        //   "Company name",
+        //   "Country",
+        //   "Name",
+        //   "Sell date",
+        //   "Order ID",
+        //   "In stock",
+        //   "Qty",
+        //   "Progress",
+        //   "Rating"
+        // ],
+        // columns: [
+        //   { data: 1, type: "text" },
+        //   { data: 2, type: "text" },
+        //   { data: 3, type: "text" },
+        //   {
+        //     data: 4,
+        //     type: "date",
+        //     allowInvalid: false
+        //   },
+        //   { data: 5, type: "text" },
+        //   {
+        //     data: 6,
+        //     type: "checkbox",
+        //     className: "htCenter"
+        //   },
+        //   {
+        //     data: 7,
+        //     type: "numeric"
+        //   }
+        // ],
+        licenseKey: "non-commercial-and-evaluation",
+      },
     };
   },
   components: {
