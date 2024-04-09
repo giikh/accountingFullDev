@@ -36,7 +36,56 @@ export default defineComponent({
           "",
           "",
           "",
+          ""
         ],
+        [
+        "",
+        "",
+        "",
+        "2019 он",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+       ],
+       [
+        "Дансны дугаар",
+        "",
+        "150101",
+        "",
+        "",
+        "",
+        "",
+        "Эд хариуцагчийн код",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+      ],
+      [
+        "Дансны нэр",
+        "",
+        "Бараа материал",
+        "",
+        "",
+        "",
+        "",
+        "Агуулахын нэр,№",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+      ],
         [
           "№",
           "Бараа материалын код",
@@ -81,7 +130,8 @@ export default defineComponent({
           136000,
           100,
           340,
-          34000
+          34000,
+          204000
         ],
         [
           5,
@@ -97,7 +147,8 @@ export default defineComponent({
           710769,
           600,
           355,
-          213231
+          213231,
+          1066153.846
         ],
         [
           6,
@@ -113,7 +164,8 @@ export default defineComponent({
           17769,
           550,
           355,
-          195462
+          195462,
+          26653.84615
         ],
         [
           7,
@@ -129,7 +181,8 @@ export default defineComponent({
           14215,
           510,
           355,
-          181246
+          181246,
+          21323.07692
         ],
         [
           8,
@@ -145,7 +198,8 @@ export default defineComponent({
           10662,
           480,
           355,
-          170585
+          170585,
+          15992.30769
         ],
         [
           10,
@@ -161,17 +215,28 @@ export default defineComponent({
           108218,
           780,
           360,
-          281367
+          281367,
+          162326.9231
         ]
       ],
       hotSettings: {
         mergeCells: [
-          { row: 0, col: 0, rowspan: 1, colspan: 14 },
+          { row: 0, col: 0, rowspan: 1, colspan: 15 },
           { row: 1, col: 0, rowspan: 1, colspan: 1 },
-          { row: 1, col: 5, rowspan: 1, colspan: 3 },
-          { row: 1, col: 8, rowspan: 1, colspan: 3 },
-          { row: 1, col: 11, rowspan: 1, colspan: 3 },
+          { row: 4, col: 5, rowspan: 1, colspan: 3 },
+          { row: 4, col: 8, rowspan: 1, colspan: 3 },
+          { row: 4, col: 11, rowspan: 1, colspan: 3 },
           { row: 1, col: 2, rowspan: 1, colspan: 1 },
+          { row: 1, col: 4, rowspan: 1, colspan: 11 },
+          { row: 1, col: 0, rowspan: 1, colspan: 3 },
+          { row: 2, col: 7, rowspan: 1, colspan: 8 },
+          { row: 2, col: 0, rowspan: 1, colspan: 2 },
+          { row: 3, col: 0, rowspan: 1, colspan: 2 },
+          { row: 3, col: 7, rowspan: 1, colspan: 8 },
+          { row: 3, col: 7, rowspan: 1, colspan: 8 },
+          { row: 2, col: 3, rowspan: 1, colspan: 4 },
+          { row: 3, col: 3, rowspan: 1, colspan: 4 },
+
         ],
         cell: [
           { row: 0, col: 0, className: 'htCenter'}
