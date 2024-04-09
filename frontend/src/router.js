@@ -8,7 +8,9 @@ import BaraaMaterial from "./pages/BaraaMaterial.vue";
 import SheetA from "./pages/SheetA.vue";
 import JournalA from "./pages/JournalA.vue";
 import GuilbalA from "./pages/GuilbalA.vue";
-import Ct_1 from ".//pages/Ct_1.vue";
+import Ct_1 from "./pages/Ct_1.vue";
+import Hynalt from "./pages/HynaltHu.vue";
+
 
 const router = createRouter({
   history: createWebHistory(),
@@ -43,30 +45,34 @@ const router = createRouter({
     //     component: HomePage,
     //     meta: { title: "Нүүр" },
     //   },
-    {
-      path: "/sheet",
-      name: "SheetA",
-      component: SheetA,
-      meta: { title: "Sheet1" },
-    },
-    {
-      path: "/journal",
-      name: "Yrunhiijurnal",
-      component: JournalA,
-      meta: { title: "jurnal" },
-    },
-    {
-      path: "/guilbal",
-      name: "Guilbal",
-      component: GuilbalA,
-      meta: { title: "guilbal" },
-    },
+      {
+        path: "/sheet",
+        name: "SheetA",
+        component: SheetA,
+        meta: { title: "Sheet1" },
+      } ,{
+         path: "/journal",
+         name: "Yrunhiijurnal",
+         component: JournalA,
+         meta: { title: "jurnal" },
+       },{
+        path: "/guilbal",
+        name: "Guilbal",
+        component: GuilbalA,
+        meta: { title: "guilbal" },
+      },
     {
       path: "/ct_1",
       name: "Ct_1",
       component: Ct_1,
       meta: { title: "ct_1" },
     },
+      {
+        path: "/hynalt",
+        name: "Hynalt",
+        component: Hynalt,
+        meta: { title: "hynalt" },
+      }
   ],
   scrollBehavior(to) {
     if (to.hash) {
