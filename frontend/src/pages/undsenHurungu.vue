@@ -129,7 +129,7 @@ export default defineComponent({
       ],
       hotSettings: {
         mergeCells: [{ row: 0, col: 8, rowspan: 1, colspan: 3 }],
-        cell: [{ row: 0, col: 0, className: "htCenter" }],
+        cell: [{ row: 0, col: 8, className: "htCenter" }],
         licenseKey: "non-commercial-and-evaluation",
       },
     };
