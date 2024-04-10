@@ -241,7 +241,7 @@ export default defineComponent({
         cell: [
           { row: 0, col: 0, className: 'htCenter'}
         ],
-        licenseKey: "non-commercial-and-evaluation",
+        licenseKey: "non-commercial-and-evaluation"
       },
     };
   },

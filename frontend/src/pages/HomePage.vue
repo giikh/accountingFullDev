@@ -1,5 +1,6 @@
 <template>
   <h1>HomePage</h1>
+  <h1>HelloHicheengui</h1>
  <h2><a href="http://boyo.mn/salary/">Цалингийн хүснэгт</a></h2> 
  <h2><a href="http://boyo.mn/goods/">Бараа материал</a></h2> 
  <h2><a href="http://boyo.mn/sheet/">Sheet1</a></h2>
