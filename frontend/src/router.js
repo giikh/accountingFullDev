@@ -13,6 +13,7 @@ import Ct_1 from "./pages/Ct_1.vue";
 import Hynalt from "./pages/HynaltHu.vue";
 import Ct_2 from "./pages/Ct_2.vue"
 import DansHutlult from "./pages/DansHutlult.vue";
+import Ct_3 from "./pages/Ct_3.vue";
 
 
 const router = createRouter({
@@ -81,10 +82,16 @@ const router = createRouter({
       meta: { title: "ct_2" },
     },
     {
-      path: "/dans_hutlult",
-      name: "dans_hutlult",
+      path: "/dans_tuluvluguu",
+      name: "dans_tuluvluguu",
       component: DansHutlult,
-      meta: { title: "dans_hutlult" },
+      meta: { title: "dans_tuluvluguu" },
+    },
+    {
+      path: "/Ct_3",
+      name: "Ct_3",
+      component: Ct_3,
+      meta: { title: "Ct_3" },
     },
   ],
   scrollBehavior(to) {
