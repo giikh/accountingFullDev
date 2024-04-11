@@ -30,6 +30,12 @@ const router = createRouter({
       component: BaraaMaterial,
       meta: { title: "Бараа материал" },
     },
+    {
+      path: "/",
+      name: "Goods",
+      component: BaraaMaterial,
+      meta: { title: "Бараа материал" },
+    },
     //   {
     //     path: "/3",
     //     name: "Home",
