@@ -307,7 +307,7 @@ export default defineComponent({
             renderer: "customStylesRenderer",
           },
         ],
-        licenseKey: "non-commercial-and-evaluation",
+        licenseKey: "non-commercial-and-evaluation"
       },
     };
   },
