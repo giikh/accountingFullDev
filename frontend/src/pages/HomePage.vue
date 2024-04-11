@@ -5,7 +5,6 @@
   <h2><a href="./salary/">Цалингийн хүснэгт</a></h2>
   <h2><a href="./goods/">Бараа материал</a></h2>
   <h2><a href="./undsenHurungu/">Үндсэн хөрөнгө</a></h2>
-  <h2><a href="./hynalt/">Хяналт</a></h2>
   <h2><a href="./sheet/">Sheet1</a></h2>
   <h2><a href="./journal/">Ерөнхий журнал</a></h2>
   <h2><a href="./guilbal/">Гүйлгээ баланс</a></h2>

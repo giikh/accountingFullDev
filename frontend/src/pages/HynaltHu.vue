@@ -4,7 +4,8 @@
     licenseKey="non-commercial-and-evaluation"
     :data="data"
     :rowHeaders="true"
-    :colHeaders="true"></hot-table>
+    :colHeaders="true"
+  ></hot-table>
 </template>
 
 <script>
@@ -16,11 +17,10 @@ import "handsontable/dist/handsontable.full.css";
 registerAllModules();
 
 export default defineComponent({
-  name: "HynaltHuComponent", // Renamed to multi-worded name
   data() {
     return {
       data: [
-        [ "Д/д","Дүн", "Дебит / Кредит",""],
+        ["Д/д", "Дүн", "Дебит / Кредит", ""],
         [1, 10000, 10000, "-"],
         [2, 5000, 5000, "-"],
         [3, 50, 50, "-"],
@@ -40,7 +40,7 @@ export default defineComponent({
         ["SALES2", 1066154, 1066154, "-"],
         ["SALES3", 26654, 26654, "-"],
         ["SALES4", 21323, 21323, "-"],
-        ["SALES5", 15992, 15992, "-"]
+        ["SALES5", 15992, 15992, "-"],
       ],
     };
   },
