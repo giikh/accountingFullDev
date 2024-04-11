@@ -4,8 +4,10 @@
     licenseKey="non-commercial-and-evaluation"
     :data="data"
     :rowHeaders="true"
-    :colHeaders="true"></hot-table>
-</template>
+    :colHeaders="true"
+    class="custom-hot-table"></hot-table>
+</template> 
+
 
 <script>
 import { defineComponent } from "vue";
@@ -348,3 +350,14 @@ export default defineComponent({
   },
 });
 </script>
+
+<style>
+.custom-hot-table .htCore td,
+.custom-hot-table .htCore th {
+  border: 1; /* Remove borders from cells */
+}
+
+.custom-hot-table .htCore {
+  border: 1px solid black; /* Add border to the table */
+}
+</style>
