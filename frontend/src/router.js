@@ -12,7 +12,12 @@ import GuilbalA from "./pages/GuilbalA.vue";
 import Ct_1 from "./pages/Ct_1.vue";
 import Hynalt from "./pages/HynaltHu.vue";
 import Ct_2 from "./pages/Ct_2.vue"
+<<<<<<< HEAD
 import Ct_4 from "./pages/Ct_4.vue";
+=======
+import DansHutlult from "./pages/DansHutlult.vue";
+
+>>>>>>> origin/main
 
 const router = createRouter({
   history: createWebHistory(),
@@ -65,17 +70,25 @@ const router = createRouter({
       component: Ct_1,
       meta: { title: "ct_1" },
     },
+    
     {
       path: "/hynalt",
       name: "Hynalt",
       component: Hynalt,
       meta: { title: "hynalt" },
     },
+
     {
       path: "/ct_2",
       name: "Ct_2",
       component: Ct_2,
       meta: { title: "ct_2" },
+    },
+    {
+      path: "/dans_hutlult",
+      name: "dans_hutlult",
+      component: DansHutlult,
+      meta: { title: "dans_hutlult" },
     },
       {
       path: "/ct_4",
