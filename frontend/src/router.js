@@ -79,7 +79,7 @@ const router = createRouter({
       name: "Ct_2",
       component: Ct_2,
       meta: { title: "ct_2" },
-
+    },
     {
       path: "/dans_hutlult",
       name: "dans_hutlult",
