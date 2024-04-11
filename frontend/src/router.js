@@ -40,6 +40,12 @@ const router = createRouter({
       meta: { title: "Үндсэн хөрөнгө" },
     },
     {
+      path: "/hynalt",
+      name: "Hynalt",
+      component: Hynalt,
+      meta: { title: "hynalt" },
+    },
+    {
       path: "/sheet",
       name: "SheetA",
       component: SheetA,
@@ -62,12 +68,6 @@ const router = createRouter({
       name: "Ct_1",
       component: Ct_1,
       meta: { title: "ct_1" },
-    },
-    {
-      path: "/hynalt",
-      name: "Hynalt",
-      component: Hynalt,
-      meta: { title: "hynalt" },
     },
   ],
   scrollBehavior(to) {
