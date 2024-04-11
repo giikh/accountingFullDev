@@ -1,28 +1,38 @@
 <template>
-    <!-- <TheHeader v-if="showTodoNav" /> -->
-  
-    <!-- <ContactNavbar v-show="showHeaderFooter" />
-    <WebNavbar v-show="showHeaderFooter" /> -->
-  
-    <RouterView />
-  
-    <!-- <WebFooter v-show="showHeaderFooter" /> -->
-  
-    <!-- <BackToTopButton /> -->
-  </template>
-  
-  <script>
-//   import { ref, watch } from "vue";
-//   import { useRoute } from "vue-router";
-//   import Cookies from "js-cookie";
+  <!-- <p>Choose what part of this page you want to see:</p> -->
+  <button @click="activeComp = 'TsalinHuls'">Цалингийн хүснэгт</button>
+  <button @click="activeComp = 'BaraaMaterial'">Бараа материал</button>
+  <button @click="activeComp = 'undsenHurungu'">Үндсэн хөрөнгө</button>
+  <button @click="activeComp = 'HynaltHu'">Хяналт</button>
+  <button @click="activeComp = 'SheetA'">Sheet1</button>
+  <button @click="activeComp = 'JournalA'">Ерөнхий журнал</button>
+  <button @click="activeComp = 'GuilbalA'">Гүйлгээ баланс</button>
+  <button @click="activeComp = 'Ct_1'">CT-1</button>
 
-  export default {
-  name: "App",
-  components: {  
+  <div>
+    <component :is="activeComp"></component>
+  </div>
+</template>
 
+<script>
+export default {
+  data() {
+    return {
+      activeComp: "",
+    };
   },
-  setup() {
-    // const route = useRoute();
-  }
-}
+};
 </script>
+
+<style scoped>
+button {
+  padding: 5px;
+  margin: 10px;
+}
+/* div {
+  border: dashed black 1px;
+  padding: 20px;
+  margin: 10px;
+  display: inline-block;
+} */
+</style>
