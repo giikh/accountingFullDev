@@ -9,6 +9,8 @@
   <h2><a href="./guilbal/">Гүйлгээ баланс</a></h2>
   <h2><a href="./ct_1/">CT-1</a></h2>
   <h2><a href="./hynalt/">Хяналт</a></h2>
+  <h2><a href="./Ct_2.vue">Ct_2</a></h2>
+  <h2><a href="./Ct_4.vue">Ct_4</a></h2>
 </template>
 
 <script>
