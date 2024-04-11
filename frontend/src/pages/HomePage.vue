@@ -9,6 +9,7 @@
   <h2><a href="./guilbal/">Гүйлгээ баланс</a></h2>
   <h2><a href="./ct_1/">CT-1</a></h2>
   <h2><a href="./hynalt/">Хяналт</a></h2>
+  <h2><a href="./dans_hutlult/">Данс хөтлөлт</a></h2>
 </template>
 
 <script>
