@@ -64,6 +64,7 @@ const router = createRouter({
       component: Ct_1,
       meta: { title: "ct_1" },
     },
+    
     {
       path: "/hynalt",
       name: "Hynalt",
