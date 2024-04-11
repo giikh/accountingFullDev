@@ -11,6 +11,7 @@ import JournalA from "./pages/JournalA.vue";
 import GuilbalA from "./pages/GuilbalA.vue";
 import Ct_1 from "./pages/Ct_1.vue";
 import Hynalt from "./pages/HynaltHu.vue";
+import Ct_2 from "./pages/Ct_2.vue"
 
 const router = createRouter({
   history: createWebHistory(),
@@ -68,6 +69,13 @@ const router = createRouter({
       name: "Hynalt",
       component: Hynalt,
       meta: { title: "hynalt" },
+    },
+    
+    {
+      path: "/ct_2",
+      name: "Ct_2",
+      component: Ct_2,
+      meta: { title: "ct_2" },
     },
   ],
   scrollBehavior(to) {

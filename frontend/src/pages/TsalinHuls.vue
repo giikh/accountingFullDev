@@ -5,7 +5,9 @@
     :data="data"
     :rowHeaders="false" 
     :colHeaders="false"
-    :renderer="customRenderer">
+    :renderer="customRenderer"
+    class="custom-hot-table"
+    >
   </hot-table>
 </template>
 
