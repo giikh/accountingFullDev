@@ -8,6 +8,10 @@
   <button @click="activeComp = 'JournalA'">Ерөнхий журнал</button>
   <button @click="activeComp = 'GuilbalA'">Гүйлгээ баланс</button>
   <button @click="activeComp = 'Ct_1'">CT-1</button>
+  <button @click="activeComp = 'Ct_2'">CT-2</button>
+  <button @click="activeComp = 'Ct_3'">CT-3</button>
+  <button @click="activeComp = 'Ct_4'">CT-4</button>
+  <button @click="activeComp = 'DansHutlult'">DansHutlult</button>
 
   <div>
     <component :is="activeComp"></component>
