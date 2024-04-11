@@ -9,16 +9,12 @@ import undsenHurungu from "./pages/undsenHurungu.vue";
 import SheetA from "./pages/SheetA.vue";
 import JournalA from "./pages/JournalA.vue";
 import GuilbalA from "./pages/GuilbalA.vue";
-import Ct_1 from "./pages/Ct_1.vue";
 import Hynalt from "./pages/HynaltHu.vue";
-import Ct_2 from "./pages/Ct_2.vue"
-<<<<<<< HEAD
-import Ct_4 from "./pages/Ct_4.vue";
-=======
-import DansHutlult from "./pages/DansHutlult.vue";
+import Ct_1 from "./pages/Ct_1.vue";
+import Ct_2 from "./pages/Ct_2.vue";
 import Ct_3 from "./pages/Ct_3.vue";
-
->>>>>>> origin/main
+import Ct_4 from "./pages/Ct_4.vue";
+import DansHutlult from "./pages/DansHutlult.vue";
 
 const router = createRouter({
   history: createWebHistory(),
