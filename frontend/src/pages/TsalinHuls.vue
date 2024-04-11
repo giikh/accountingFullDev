@@ -362,3 +362,14 @@ export default defineComponent({
 }
 );
 </script>
+
+<style>
+.custom-hot-table .htCore td,
+.custom-hot-table .htCore th {
+  border: 1; /* Remove borders from cells */
+}
+
+.custom-hot-table .htCore {
+  border: 1px solid black; /* Add border to the table */
+}
+</style>
