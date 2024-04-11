@@ -1,12 +1,13 @@
 <template>
-    <div id="example">
-      <hot-table
-        ref="hotTableComponent"
-        :data="data"
-        :settings="hotSettings"
-      ></hot-table>
-    </div>
-  </template>
+  <div id="example">
+    <hot-table
+      ref="hotTableComponent"
+      :data="data"
+      :settings="hotSettings"
+      class="custom-hot-table" 
+    ></hot-table>
+  </div>
+</template>
   
   <script>
   import { defineComponent } from "vue";
@@ -515,3 +516,15 @@
     },
   });
   </script>
+
+
+<style>
+.custom-hot-table .htCore td,
+.custom-hot-table .htCore th {
+  border: 1; /* Remove borders from cells */
+}
+
+.custom-hot-table .htCore {
+  border: 1px solid black; /* Add border to the table */
+}
+</style>

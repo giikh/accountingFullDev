@@ -4,6 +4,7 @@
       ref="hotTableComponent"
       :data="data"
       :settings="hotSettings"
+      class="custom-hot-table" 
     ></hot-table>
   </div>
 </template>
@@ -316,3 +317,10 @@ export default defineComponent({
   },
 });
 </script>
+
+<style>
+.custom-hot-table .htCore td,
+.custom-hot-table .htCore th {
+  border: 0.5px solid black;
+}
+</style>
