@@ -1,16 +1,21 @@
 <template>
   <hot-table
-    :settings="settings"
+  :settings="settings"
     licenseKey="non-commercial-and-evaluation"
     :data="data"
-    :rowHeaders="true"
-    :colHeaders="true"></hot-table>
+    :rowHeaders="false" 
+    :colHeaders="false"
+    :renderer="customRenderer"
+    class="custom-hot-table"
+    >
+  </hot-table>
 </template>
 
 <script>
 import { defineComponent } from "vue";
 import { HotTable } from "@handsontable/vue3";
 import { registerAllModules } from "handsontable/registry";
+import Handsontable from 'handsontable';
 import "handsontable/dist/handsontable.full.css";
 
 // register Handsontable's modules
@@ -135,17 +140,17 @@ export default defineComponent({
         [
           null,
           null,
+          null,
+          null,
+          null,
           21512500.0,
-          null,
-          null,
-          null,
           1922562.5,
-          null,
           19589937.5,
           1890660.41,
           7800000.0,
           9899277.09,
           2689062.5,
+          null,
         ],
         [
           8,
@@ -340,11 +345,33 @@ export default defineComponent({
           2609636.3,
           734273.95,
         ],
-      ],
+      ],//data
+      boldRow: 8 
     };
   },
   components: {
     HotTable,
   },
-});
+  methods: {
+    customRenderer(hotInstance, td, row) {
+      Handsontable.renderers.TextRenderer.apply(this, arguments);
+
+      if (row === this.boldRow) {
+        td.style.fontWeight = "bold";
+      }
+    },
+},
+}
+);
 </script>
+
+<style>
+.custom-hot-table .htCore td,
+.custom-hot-table .htCore th {
+  border: 1; /* Remove borders from cells */
+}
+
+.custom-hot-table .htCore {
+  border: 1px solid black; /* Add border to the table */
+}
+</style>
