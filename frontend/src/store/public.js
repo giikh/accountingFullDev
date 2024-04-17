@@ -1,5 +1,3 @@
-import instance from "@/lib/clientInstance";
-
 export default {
   state() {
     return {
@@ -15,6 +13,16 @@ export default {
 
       p1: [],
       p2: [],
+      p3: [],
+      p4: [],
+      p5: [],
+      p6: [],
+      p7: [],
+      p8: [],
+      p9: [],
+      p10: [],
+      p11: [],
+      p12: [],
       p13: []
     };
   },
@@ -96,90 +104,90 @@ export default {
   },
 
   actions: {
-    async loginUser({ commit }, credentials) {
-      try {
-        const response = await instance.post("/account/login", credentials);
-        commit("setUserLogin", response.data);
-      } catch (error) {
-        if (error.response && error.response.status === 400) {
-          return Promise.reject(error);
-        }
-        return Promise.reject(error);
-      }
-    },
+  //   async loginUser({ commit }, credentials) {
+  //     try {
+  //       const response = await instance.post("/account/login", credentials);
+  //       commit("setUserLogin", response.data);
+  //     } catch (error) {
+  //       if (error.response && error.response.status === 400) {
+  //         return Promise.reject(error);
+  //       }
+  //       return Promise.reject(error);
+  //     }
+  //   },
 
-    async registerUser({ commit }, credentials) {
-      try {
-        const response = await instance.post("/account/signup", credentials);
-        commit("setUserRegister", response.data);
-      } catch (error) {
-        return Promise.reject(error);
-      }
-    },
+  //   async registerUser({ commit }, credentials) {
+  //     try {
+  //       const response = await instance.post("/account/signup", credentials);
+  //       commit("setUserRegister", response.data);
+  //     } catch (error) {
+  //       return Promise.reject(error);
+  //     }
+  //   },
 
-    async fetchUserByEmail({ commit }, payload) {
-      try {
-        const response = await instance.post("/account/get/userByEmail", {
-          email: payload,
-        });
-        commit("setUserByEmail", response.data);
-      } catch (error) {
-        return error;
-      }
-    },
+  //   async fetchUserByEmail({ commit }, payload) {
+  //     try {
+  //       const response = await instance.post("/account/get/userByEmail", {
+  //         email: payload,
+  //       });
+  //       commit("setUserByEmail", response.data);
+  //     } catch (error) {
+  //       return error;
+  //     }
+  //   },
 
-    async fetchNewsList({ commit }) {
-      try {
-        const response = await instance.get("/news/list");
-        commit("setNewsList", response.data);
-      } catch (error) {
-        return error;
-      }
-    },
+  //   async fetchNewsList({ commit }) {
+  //     try {
+  //       const response = await instance.get("/news/list");
+  //       commit("setNewsList", response.data);
+  //     } catch (error) {
+  //       return error;
+  //     }
+  //   },
 
-    async fetchNewsById({ commit }, news_id) {
-      try {
-        const response = await instance.post(`/news/detail/${news_id}`);
-        commit("setNewsById", response.data);
-      } catch (error) {
-        return error;
-      }
-    },
+  //   async fetchNewsById({ commit }, news_id) {
+  //     try {
+  //       const response = await instance.post(`/news/detail/${news_id}`);
+  //       commit("setNewsById", response.data);
+  //     } catch (error) {
+  //       return error;
+  //     }
+  //   },
 
-    async fetchNewsComment({ commit }, news_id) {
-      try {
-        const response = await instance.post("/news/comments", { news_id });
-        commit("setNewsComment", response.data.comments);
-      } catch (error) {
-        return error("Error fetching news comments:", error);
-      }
-    },
+  //   async fetchNewsComment({ commit }, news_id) {
+  //     try {
+  //       const response = await instance.post("/news/comments", { news_id });
+  //       commit("setNewsComment", response.data.comments);
+  //     } catch (error) {
+  //       return error("Error fetching news comments:", error);
+  //     }
+  //   },
 
-    async fetchHostPlan({ commit }) {
-      try {
-        const response = await instance.get("/host/plan");
-        commit("setHostPlan", response.data);
-      } catch (error) {
-        return error;
-      }
-    },
+  //   async fetchHostPlan({ commit }) {
+  //     try {
+  //       const response = await instance.get("/host/plan");
+  //       commit("setHostPlan", response.data);
+  //     } catch (error) {
+  //       return error;
+  //     }
+  //   },
 
-    async searchHostUser({ commit }, payload) {
-      try {
-        const response = await instance.post("/host/search", payload);
-        commit("setHostUser", response.data);
-      } catch (error) {
-        return error;
-      }
-    },
+  //   async searchHostUser({ commit }, payload) {
+  //     try {
+  //       const response = await instance.post("/host/search", payload);
+  //       commit("setHostUser", response.data);
+  //     } catch (error) {
+  //       return error;
+  //     }
+  //   },
 
-    async fetchProduct({ commit }) {
-      try {
-        const response = await instance.get("/products/1");
-        commit("setProduct", response.data);
-      } catch (error) {
-        return error;
-      }
-    },
+  //   async fetchProduct({ commit }) {
+  //     try {
+  //       const response = await instance.get("/products/1");
+  //       commit("setProduct", response.data);
+  //     } catch (error) {
+  //       return error;
+  //     }
+  //   },
   },
 };
