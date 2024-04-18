@@ -1,6 +1,6 @@
 const express = require("express");
 var path = require("path");
-require("dotenv").config();
+// require("dotenv").config();
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
@@ -8,7 +8,7 @@ const cookieParser = require("cookie-parser");
 // const useragent = require("useragent");
 // const session = require("express-session");
 
-const pageRouter = require("./api/page/pageParameters");
+const pageRouter = require("../api/page/pageParameters");
 
 const app = express();
 
@@ -18,7 +18,7 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-app.use(express.static(path.join(__dirname, "dist")));
+app.use(express.static(path.join(__dirname, "../dist")));
 app.use("/static", express.static("./app/api/assets"));
 app.use(bodyParser.json());
 
