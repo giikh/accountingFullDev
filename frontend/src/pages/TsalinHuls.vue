@@ -28,10 +28,20 @@ export default {
         await store.dispatch("fetchP1");
         data.value = store.getters.getP1;
         console.log("data", data.value.length);
-      } catch (error) {
+      } 
+      catch (error) {
         return error;
       }
-    });
+      try {
+        await store.dispatch("fetchP12");
+        data.value = store.getters.getP12;
+        console.log("data", data.value.length);
+      }
+      
+      catch (error) {
+        return error;
+      }
+    });    
 
     const hotSettings = {
       licenseKey: "non-commercial-and-evaluation",
