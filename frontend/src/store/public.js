@@ -72,6 +72,26 @@ export default {
       state.p7 = payload;
       console.log("payload-7: ", payload);
     },
+    setP8(state, payload) {
+      state.p8 = payload;
+      console.log("payload-8: ", payload);
+    },
+    setP9(state, payload) {
+      state.p9 = payload;
+      console.log("payload-9: ", payload);
+    },
+    setP10(state, payload) {
+      state.p10 = payload;
+      console.log("payload-10: ", payload);
+    },
+    setP11(state, payload) {
+      state.p11 = payload;
+      console.log("payload-11: ", payload);
+    },
+    setP12(state, payload) {
+      state.p12 = payload;
+      console.log("payload-12: ", payload);
+    },
   },
 
   actions: {
@@ -139,6 +159,56 @@ export default {
         const response = await axios.get("https://boyo.mn/backend/p7");
         console.log("fetchP7: ", response.data.a7);
         commit("setP7", response.data.a7);
+      } catch (error) {
+        return error;
+      }
+    },
+
+    async fetchP8({ commit }) {
+      try {
+        const response = await axios.get("https://boyo.mn/backend/p8");
+        console.log("fetchP8: ", response.data.a8);
+        commit("setP8", response.data.a8);
+      } catch (error) {
+        return error;
+      }
+    },
+
+    async fetchP9({ commit }) {
+      try {
+        const response = await axios.get("https://boyo.mn/backend/p9");
+        console.log("fetchP9: ", response.data.a9);
+        commit("setP9", response.data.a9);
+      } catch (error) {
+        return error;
+      }
+    },
+
+    async fetchP10({ commit }) {
+      try {
+        const response = await axios.get("https://boyo.mn/backend/p10");
+        console.log("fetchP10: ", response.data.a10);
+        commit("setP10", response.data.a10);
+      } catch (error) {
+        return error;
+      }
+    },
+
+    async fetchP11({ commit }) {
+      try {
+        const response = await axios.get("https://boyo.mn/backend/p11");
+        console.log("fetchP11: ", response.data.a11);
+        commit("setP11", response.data.a11);
+      } catch (error) {
+        return error;
+      }
+    },
+
+    async fetchP12({ commit }) {
+      try {
+        const response = await axios.get("https://boyo.mn/backend/p12");
+        console.log("fetchP12: ", response.data.a12);
+        commit("setP12", response.data.a12);
       } catch (error) {
         return error;
       }
