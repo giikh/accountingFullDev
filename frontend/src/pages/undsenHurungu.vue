@@ -1,154 +1,58 @@
 <template>
-  <div id="example">
-    <hot-table
-      ref="hotTableComponent"
-      :data="data"
-      :settings="hotSettings"
-      class="custom-hot-table" 
-    ></hot-table>
+  <div v-if="data">
+    <hot-table :settings="hotSettings" :data="data" class="custom-hot-table">
+    </hot-table>
   </div>
 </template>
 
-
 <script>
-import { defineComponent } from "vue";
+import { ref, onMounted } from "vue";
+import { useStore } from "vuex";
 import { HotTable } from "@handsontable/vue3";
 import { registerAllModules } from "handsontable/registry";
+import Handsontable from "handsontable";
 import "handsontable/dist/handsontable.full.css";
 
-// register Handsontable's modules
+Handsontable.renderers.registerRenderer(
+  "customStylesRenderer",
+  (hotInstance, TD, ...rest) => {
+    Handsontable.renderers.TextRenderer(hotInstance, TD, ...rest);
+
+    TD.style.fontWeight = "bold";
+  }
+);
+
 registerAllModules();
 
-export default defineComponent({
-  data() {
-    return {
-      data: [
-        [
-          "№",
-          "Эд хөрөнгийн нэр",
-          "Огноо",
-          "Элэгдэл байгуулах жил",
-          "Хэмжих нэгж",
-          "Тоо ширхэг",
-          "Үнэ",
-          "Хөрөнгийн өртөг",
-          "2019 оны элэгдэл",
-          "",
-          "",
-        ],
-        [
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "Нэг бүрийн",
-          "Бүгд",
-          "Тооцож эхлэх огноо",
-          "Тооцоолол дуусах огноо",
-          "Байгуулсан элэгдэл",
-        ],
-        ["а", "б", "", "1", "2", "3", "4", "5", "", "", "", "", ""],
-        [
-          "1",
-          "Барилга",
-          "7/1/2019",
-          "25",
-          "ком",
-          "1",
-          "  125,000,000.0 ",
-          "  125,000,000.0 ",
-          "7/1/2019",
-          "12/31/2019",
-          "  2,506,849.32 ",
-        ],
-        [
-          "2",
-          "Тоног төхөөрөмж",
-          "7/1/2019",
-          "5",
-          "ком",
-          "1",
-          "  74,000,000.0  ",
-          "  74,000,000.0 ",
-          "7/1/2019",
-          "12/31/2019",
-          "  7,420,273.97 ",
-        ],
-        [
-          "3",
-          "Компьютер",
-          "7/1/2019",
-          "5",
-          "ком",
-          "1",
-          "  4,207,600.0 ",
-          "  4,207,600.0  ",
-          "7/1/2019",
-          "12/31/2019",
-          "  1,054,781.92 ",
-        ],
-        [
-          "4",
-          "Тавилга эд хогшил",
-          "7/1/2019",
-          "5",
-          "ком",
-          "1",
-          "  6,258,000.0 ",
-          "  6,258,000.0 ",
-          "7/1/2019",
-          "12/31/2019",
-          "  627,514.52 ",
-        ],
-        [
-          "5",
-          "Тээврийн хэрэгсэл",
-          "7/1/2019",
-          "10",
-          "ком",
-          "1",
-          "  13,000,000.0 ",
-          "  13,000,000.0 ",
-          "7/1/2019",
-          "12/31/2019",
-          "  651,780.82 ",
-        ],
-        [
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "  222,465,600.0 ",
-          "",
-          "",
-          "",
-          "  12,261,200.55  ",
-        ],
-      ],
-      hotSettings: {
-        mergeCells: [{ row: 0, col: 8, rowspan: 1, colspan: 3 }],
-        cell: [{ row: 0, col: 8, className: "htCenter" }],
-        licenseKey: "non-commercial-and-evaluation",
-      },
-    };
-  },
+export default {
+  name: "undsenHurungu",
   components: {
     HotTable,
   },
-});
+  setup() {
+    const store = useStore();
+    const data = ref();
+
+    onMounted(async () => {
+      try {
+        await store.dispatch("fetchP2");
+        data.value = store.getters.getP2;
+        console.log("data", data.value.length);
+      } catch (error) {
+        return error;
+      }
+    });
+
+    const hotSettings = {
+      licenseKey: "non-commercial-and-evaluation",
+      mergeCells: [{ row: 0, col: 8, rowspan: 1, colspan: 3 }],
+      cell: [{ row: 0, col: 8, className: "htCenter" }],
+    };
+
+    return {
+      data,
+      hotSettings,
+    };
+  },
+};
 </script>
-
-<style>
-.custom-hot-table .htCore td,
-.custom-hot-table .htCore th {
-  border: 1; /* Remove borders from cells */
-}
-
-.custom-hot-table .htCore {
-  border: 1px solid black; /* Add border to the table */
-}
-</style>
