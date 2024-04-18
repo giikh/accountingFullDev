@@ -25,6 +25,9 @@ export default {
     getP2(state) {
       return state.p2;
     },
+    getP5(state) {
+      return state.p5;
+    },
   },
 
   mutations: {
@@ -35,6 +38,10 @@ export default {
     setP2(state, payload) {
       state.p2 = payload;
       console.log("payload-2", payload);
+    },
+    setP5(state, payload) {
+      state.p5 = payload;
+      console.log("payload-5", payload);
     },
   },
 
@@ -54,6 +61,16 @@ export default {
         const response = await axios.get("https://boyo.mn/backend/p2");
         console.log("fetchP2", response.data.a2);
         commit("setP2", response.data.a2);
+      } catch (error) {
+        return error;
+      }
+    },
+
+    async fetchP5({ commit }) {
+      try {
+        const response = await axios.get("https://boyo.mn/backend/p5");
+        console.log("fetchP5", response.data.a5);
+        commit("setP5", response.data.a5);
       } catch (error) {
         return error;
       }
