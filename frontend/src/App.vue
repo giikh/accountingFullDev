@@ -1,31 +1,16 @@
 <template>
-  <!-- <div>
-    <component :is="activeComp"></component>
-  </div> -->
-
+  <Header />
   <RouterView />
 </template>
+<script>
+import Header from "./components/Header";
+import { defineComponent } from "vue";
+import "handsontable/dist/handsontable.full.css";
 
-<!-- <script>
-
-// export default {
-//   data() {
-//     return {
-//       // activeComp: "",
-//     };
-//   },
-// };
-// </script> -->
-<!-- 
-<style scoped>
-button {
-  padding: 5px;
-  margin: 10px;
-}
-/* div {
-  border: dashed black 1px;
-  padding: 20px;
-  margin: 10px;
-  display: inline-block;
-} */
-</style> -->
+export default defineComponent({
+  data() {
+    return {};
+  },
+  components: { Header },
+});
+</script>

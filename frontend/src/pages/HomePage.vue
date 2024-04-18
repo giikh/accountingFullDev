@@ -1,9 +1,4 @@
 <template>
-  <Header />
-  <div>
-    <router-view></router-view>
-  </div>
-
   <!-- <h1>HomePage</h1>
   <h1>===================</h1>
   <h2><a href="./salary/">Цалингийн хүснэгт</a></h2>
@@ -21,7 +16,6 @@
 </template>
 
 <script>
-import Header from "../components/Header";
 import { defineComponent } from "vue";
 //import { HotTable } from "@handsontable/vue3";
 //import { registerAllModules } from "handsontable/registry";
@@ -31,6 +25,6 @@ export default defineComponent({
   data() {
     return {};
   },
-  components: { Header },
+  components: {  },
 });
 </script>

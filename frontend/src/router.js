@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 // import Cookies from "js-cookie";
 // import jwt_decode from "jwt-decode";
 
-import HomePage from "./pages/HomePage.vue";
+// import HomePage from "./pages/HomePage.vue";
 import TsalinHuls from "./pages/TsalinHuls.vue";
 import BaraaMaterial from "./pages/BaraaMaterial.vue";
 import undsenHurungu from "./pages/undsenHurungu.vue";
@@ -19,12 +19,12 @@ import DansHutlult from "./pages/DansHutlult.vue";
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    {
-      path: "/",
-      name: "Home",
-      component: HomePage,
-      meta: { title: "Нүүр" },
-    },
+    // {
+    //   path: "/",
+    //   // name: "Home",
+    //   component: HomePage,
+    //   // meta: { title: "Нүүр" },
+    // },
     {
       path: "/salary",
       name: "Salary",
@@ -105,20 +105,20 @@ const router = createRouter({
       meta: { title: "ct_4" },
     },
   ],
-  scrollBehavior(to) {
-    if (to.hash) {
-      return {
-        el: to.hash,
-        behavior: "smooth",
-      };
-    } else {
-      return { top: 0 };
-    }
-  },
+  // scrollBehavior(to) {
+  //   if (to.hash) {
+  //     return {
+  //       el: to.hash,
+  //       behavior: "smooth",
+  //     };
+  //   } else {
+  //     return { top: 0 };
+  //   }
+  // },
 });
 
-router.beforeEach((to, from, next) => {
-  next();
-});
+// router.beforeEach((to, from, next) => {
+//   next();
+// });
 
 export default router;
