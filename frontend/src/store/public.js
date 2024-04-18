@@ -1,3 +1,4 @@
+import axios from 'axios';
 export default {
   state() {
     return {
@@ -72,6 +73,7 @@ export default {
   mutations: {
     setP1(state, payload) {
       state.p1 = payload;
+      console.log("Ankhaar", payload);
     },
 
     setUserLogin(state, payload) {
@@ -112,10 +114,11 @@ export default {
   },
 
   actions: {
-    async fetchP1({ commit }) {
+    async fetchP1 ({ commit }) {
       try {
-        const response = await fetch("/backend/p1");
-        commit("setP1", response.data);
+        const response = await axios.get("https://boyo.mn/backend/p1");
+        console.log("Ankhaar2", response.data.a);
+        commit("setP1", response.data.a);
       } catch (error) {
         return error;
       }
