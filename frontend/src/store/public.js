@@ -38,6 +38,9 @@ export default {
     getP6(state) {
       return state.p6;
     },
+    getP7(state) {
+      return state.p7;
+    },
   },
 
   mutations: {
@@ -64,6 +67,10 @@ export default {
     setP6(state, payload) {
       state.p6 = payload;
       console.log("payload-6: ", payload);
+    },
+    setP7(state, payload) {
+      state.p7 = payload;
+      console.log("payload-7: ", payload);
     },
   },
 
@@ -122,6 +129,16 @@ export default {
         const response = await axios.get("https://boyo.mn/backend/p6");
         console.log("fetchP6: ", response.data.a6);
         commit("setP6", response.data.a6);
+      } catch (error) {
+        return error;
+      }
+    },
+
+    async fetchP7({ commit }) {
+      try {
+        const response = await axios.get("https://boyo.mn/backend/p7");
+        console.log("fetchP7: ", response.data.a7);
+        commit("setP7", response.data.a7);
       } catch (error) {
         return error;
       }
