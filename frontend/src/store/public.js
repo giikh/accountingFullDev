@@ -32,9 +32,11 @@ export default {
     getP4(state) {
       return state.p4;
     },
-
     getP5(state) {
       return state.p5;
+    },
+    getP6(state) {
+      return state.p6;
     },
   },
 
@@ -55,10 +57,13 @@ export default {
       state.p4 = payload;
       console.log("payload-4: ", payload);
     },
-
     setP5(state, payload) {
       state.p5 = payload;
       console.log("payload-5: ", payload);
+    },
+    setP6(state, payload) {
+      state.p6 = payload;
+      console.log("payload-6: ", payload);
     },
   },
 
@@ -107,6 +112,16 @@ export default {
         const response = await axios.get("https://boyo.mn/backend/p5");
         console.log("fetchP5: ", response.data.a5);
         commit("setP5", response.data.a5);
+      } catch (error) {
+        return error;
+      }
+    },
+
+    async fetchP6({ commit }) {
+      try {
+        const response = await axios.get("https://boyo.mn/backend/p6");
+        console.log("fetchP6: ", response.data.a6);
+        commit("setP6", response.data.a6);
       } catch (error) {
         return error;
       }

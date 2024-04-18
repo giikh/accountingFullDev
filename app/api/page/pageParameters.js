@@ -626,6 +626,8 @@ const p4 = [
   [2, "Avlaga", "Bor.orlogo", "1/1/2021", 500000],
 ];
 
+const p5 = [];
+
 router.get("/p1", (req, res) => {
   res.json({ a: p1 });
 });
@@ -644,6 +646,10 @@ router.get("/p4", (req, res) => {
 
 router.get("/p5", (req, res) => {
   p5Table.getP5().then((p5) => res.json({ p5 }));
+});
+
+router.get("/p6", (req, res) => {
+  p5Table.getP6().then((p6) => res.json({ p6 }));
 });
 
 // router.post("/getall", authenticated, (req, res, next) => {
