@@ -1,101 +1,55 @@
 <template>
-  <hot-table
-  :settings="settings"
-    licenseKey="non-commercial-and-evaluation"
-    :data="data"
-    :rowHeaders="false" 
-    :colHeaders="false"
-    :renderer="customRenderer">
-  </hot-table>
+  <div v-if="data">
+    <hot-table :settings="hotSettings" :data="data" class="custom-hot-table">
+    </hot-table>
+  </div>
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { ref, onMounted } from "vue";
+import { useStore } from "vuex";
 import { HotTable } from "@handsontable/vue3";
 import { registerAllModules } from "handsontable/registry";
-import Handsontable from 'handsontable';
+import Handsontable from "handsontable";
 import "handsontable/dist/handsontable.full.css";
 
-// register Handsontable's modules
+Handsontable.renderers.registerRenderer(
+  "customStylesRenderer",
+  (hotInstance, TD, ...rest) => {
+    Handsontable.renderers.TextRenderer(hotInstance, TD, ...rest);
+    TD.style.fontWeight = "bold";
+  }
+);
+
 registerAllModules();
 
-export default defineComponent({
-  data() {
-    return {
-      data: [
-        ["Дансны дугаар", "Дансны нэр", "СТ-ын мөр", null, "D/C"],
-        ["1001", "Касс", "Мөнгө, түүнтэй адилтгах хөрөнгө", "1.1.1", "D"],
-        ["1103", "Банкны данс", "Мөнгө, түүнтэй адилтгах хөрөнгө", "1.1.1", "D"],
-        ["1201", "авлага", "Дансны авлага", "1.1.2", "D"],
-        ["1501", "Бараа мат", "Бараа материал", "1.1.6", "D"],
-        ["1502", "Түүхий эд материал", "Бараа материал", null, "D"],
-        ["1503", "Дуусаагүй үйлдвэрлэл", "Бараа материал", null, "D"],
-        ["1504", "Бэлэн бүтээгдэхүүн", "Бараа материал", null, "D"],
-        ["1599", "ҮНЗ", "", null, ""],
-        ["2001", "Үндсэн хөр.", "Үндсэн хөрөнгө", null, "D"],
-        ["2010", "Үх-н хур.эл.", "Үндсэн хөрөнгө", null, "C"],
-        ["2002", "Биет бус хөрөнгө", "Биет бус хөрөнгө", null, "D"],
-        ["2020", "ББХ-н хур.эл.", "Биет бус хөрөнгө", null, "C"],
-        ["3101", "Өглөг", "Дансны өглөг", null, "C"],
-        ["3103", "хаоат өглөг", "Татварын өглөг", null, "C"],
-        ["3104", "Түрээсийн өглөг", "Дансны өглөг", null, "C"],
-        ["3105", "НӨАТ-ын өглөг", "Татварын өглөг", null, "C"],
-        ["3106", "ндш өглөг", "Татварын өглөг", null, "C"],
-        ["3109", "ааноат", "Татварын өглөг", null, "C"],
-        ["3110", "Банкны зээл", "Урт хугацаат зээл", null, "C"],
-        ["3107", "Урьдчилж орсон орлого", "Урьдчилж орсон орлого", null, "C"],
-        ["3111", "Бусад өглөг", "Бусад богино хугацаат өр төлбөр", null, "C"],
-        ["4101", "эз. Өмч", "б) хувийн", null, "C"],
-        ["4201", "хур. ашиг", "Хуримтлагдсан ашиг", null, "C"],
-        ["5101", "Брлт орлого", "Борлуулалтын орлого (цэвэр)", null, "C"],
-        ["5102", "хүүгийн орлого", "Хүүний орлого", null, "C"],
-        ["8101", "ханшны зөрүү", "Гадаад валютын ханшийн зөрүүний олз (гарз)", null, "C"],
-        ["6101", "ББӨ", "Борлуулалтын өртөг", null, "D"],
-        ["7001", "Цалин зардал (Уд)", "Ерөнхий ба удирдлагын зардал", null, "D"],
-        ["7002", "Цалин зардал (Бор)", "Борлуулалт, маркетингийн зардал", null, "D"],
-        ["7011", "НДШ зардал (Уд)", null, ""],
-        ["7012", "НДШ зардал (Бор)", "Борлуулалт, маркетингийн зардал", null, "D"],
-        ["7031", "Ашиглалтын зардал", "Ерөнхий ба удирдлагын зардал", null, "D"],
-        ["7022", "түрээс", "Ерөнхий ба удирдлагын зардал", null, "D"],
-        ["7003", "Бичиг хэрэг, холбоо", "Ерөнхий ба удирдлагын зардал", null, "D"],
-        ["7004", "засвар үйлчилгээ", "Бусад зардал", null, "D"],
-        ["7005", "элэгдэл", "Ерөнхий ба удирдлагын зардал", null, "D"],
-        ["7006", "тээврийн зардал аж ахуйн", "Ерөнхий ба удирдлагын зардал", null, "D"],
-        ["7009", "Хүүгийн зардал", "Санхүүгийн зардал", null, "D"],
-        ["7007", "бусад", "Бусад зардал", null, "D"],
-        ["7013", "Татварын зардал", "Орлогын татварын зардал", null, "D"],
-        ["7008", "томилолт, тээвэр", "Борлуулалт, маркетингийн зардал", null, "D"],
-        ["9002", "Цалингийн тооцоо", "", null, ""],
-        ["9001", "OZND", "", null, "C"]
-      ],
-      boldRow: 0,
-      
-    };
-  },
+export default {
+  name: "DansHutlult",
   components: {
     HotTable,
   },
-  methods: {
-    customRenderer(hotInstance, td, row, col) {
-  Handsontable.renderers.TextRenderer.apply(this, arguments);
+  setup() {
+    const store = useStore();
+    const data = ref();
 
-  if (row === 0 || col === 0) {
-    td.style.fontWeight = "bold";
-  }
-},
+    onMounted(async () => {
+      try {
+        await store.dispatch("fetchP12");
+        data.value = store.getters.getP12;
+        console.log("data", data.value.length);
+      } catch (error) {
+        return error;
+      }
+    });
 
-},
-}
-);
+    const hotSettings = {
+      licenseKey: "non-commercial-and-evaluation",
+    };
+
+    return {
+      data,
+      hotSettings,
+    };
+  },
+};
 </script>
-
-<style>
-.custom-hot-table .htCore td,
-.custom-hot-table .htCore th {
-  border: 1; /* Remove borders from cells */
-}
-
-.custom-hot-table .htCore {
-  border: 1px solid black; /* Add border to the table */
-}
-</style>

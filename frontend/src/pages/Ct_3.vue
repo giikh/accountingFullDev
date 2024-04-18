@@ -1,204 +1,60 @@
 <template>
-    <div id="example">
-      <hot-table
-        ref="hotTableComponent"
-        :data="data"
-        :settings="hotSettings"
-      ></hot-table>
-    </div>
-  </template>
-  
-  <script>
-  import { defineComponent } from "vue";
-  import { HotTable } from "@handsontable/vue3";
-  import { registerAllModules } from "handsontable/registry";
-  import "handsontable/dist/handsontable.full.css";
-  
-  // register Handsontable's modules
-  registerAllModules();
-  
-  export default defineComponent({
-    data() {
-      return {
-        data: [
-          [
-            "ӨМЧИЙН ӨӨРЧЛӨЛТИЙН ТАЙЛАН",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-          ],
-          [
-            "( Аж ахуйн нэгж, байгууллагын нэр )",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-          ],
-          [
-            "№",
-            "Үзүүлэлт",
-            "Өмч",
-            "Халаасны хувьцаа",
-            "Нэмж төлөгдсөн капитал",
-            "Хөрөнгийн дахин үнэлгээний нэмэгдэл",
-            "Гадаад валютын хөрвүүлэлтийн нөөц",
-            "Эздийн өмчийн бусад хэсэг",
-            "Хуримтлагдсан ашиг",
-            "Нийт дүн",
-          ],
-          [
-            "1",
-            "20.. оны 01-р сарын 01-ний үлдэгдэл",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-          ],
-          [
-            "2",
-            "Нягтлан бодох бүртгэлийн бодлогын өөрчлөлтийн нөлөө, алдааны залруулга",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-          ],
-          [
-            "3",
-            "Залруулсан үлдэгдэл",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-          ],
-          [
-            "4",
-            "Тайлант үеийн цэвэр ашиг (алдагдал)",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-          ],
-          [
-            "5",
-            "Бусад дэлгэрэнгүй орлого",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-          ],
-          [
-            "6",
-            "Өмчид гарсан өөрчлөлт",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-          ],
-          [
-            "7",
-            "Зарласан ногдол ашиг",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-          ],
-          [
-            "8",
-            "Дахин үнэлгээний нэмэгдлийн хэрэгжсэн дүн",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-          ],
-          [
-            "9",
-            "20.. оны 12-р сарын 31-ний үлдэгдэл",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-          ],
-         
-          [
-            "",
-            "Захирал :			",
-            "",
-            "",
-            "",
-          ],
-          [
-            "",
-            "Ерөнхий нягтлан бодогч :			",
-            "",
-            "",
-            "",
-          ],
-         
-        ],
-        hotSettings: {
-          mergeCells: [
-            { row: 0, col: 0, rowspan: 1, colspan: 10 },
-            { row: 1, col: 0, rowspan: 1, colspan: 2 },
+  <div v-if="data">
+    <hot-table :settings="hotSettings" :data="data" class="custom-hot-table">
+    </hot-table>
+  </div>
+</template>
 
+<script>
+import { ref, onMounted } from "vue";
+import { useStore } from "vuex";
+import { HotTable } from "@handsontable/vue3";
+import { registerAllModules } from "handsontable/registry";
+import Handsontable from "handsontable";
+import "handsontable/dist/handsontable.full.css";
 
+Handsontable.renderers.registerRenderer(
+  "customStylesRenderer",
+  (hotInstance, TD, ...rest) => {
+    Handsontable.renderers.TextRenderer(hotInstance, TD, ...rest);
+    TD.style.fontWeight = "bold";
+  }
+);
 
-          ],
-          cell: [
-            { row: 0, col: 0, className: 'htCenter'}
-          ],
-          licenseKey: "non-commercial-and-evaluation",
-        },
-      };
-    },
-    components: {
-      HotTable,
-    },
-  });
-  </script>
+registerAllModules();
+
+export default {
+  name: "Ct_3",
+  components: {
+    HotTable,
+  },
+  setup() {
+    const store = useStore();
+    const data = ref();
+
+    onMounted(async () => {
+      try {
+        await store.dispatch("fetchP10");
+        data.value = store.getters.getP10;
+        console.log("data", data.value.length);
+      } catch (error) {
+        return error;
+      }
+    });
+
+    const hotSettings = {
+      licenseKey: "non-commercial-and-evaluation",
+      mergeCells: [
+        { row: 0, col: 0, rowspan: 1, colspan: 10 },
+        { row: 1, col: 0, rowspan: 1, colspan: 2 },
+      ],
+      cell: [{ row: 0, col: 0, className: "htCenter" }],
+    };
+
+    return {
+      data,
+      hotSettings,
+    };
+  },
+};
+</script>
