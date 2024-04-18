@@ -649,7 +649,7 @@ router.get("/p5", (req, res) => {
 });
 
 router.get("/p6", (req, res) => {
-  p5Table.getP6().then((p6) => res.json({ p6 }));
+  res.json({ a6: p6 });
 });
 
 // router.post("/getall", authenticated, (req, res, next) => {
