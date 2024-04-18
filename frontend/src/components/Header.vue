@@ -27,7 +27,7 @@ body {
   background-color: #999;
 }
 .nav {
-  height: 30px;
+  height: 60px;
   background-color: #444;
   color: orange;
   /* overflow: hidden; */
@@ -35,9 +35,8 @@ body {
 .nav a {
   float: left;
   text-align: center;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 5px;
+  margin: 10px;
+  padding: 10px;
 }
 
 .nav a:hover {
