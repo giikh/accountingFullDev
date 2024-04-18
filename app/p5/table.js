@@ -21,4 +21,4 @@ class p5Table {
   }
 }
 
-module.exports = TasksTable;
+module.exports = p5Table;
