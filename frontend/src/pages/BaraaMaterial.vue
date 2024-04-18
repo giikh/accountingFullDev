@@ -19,8 +19,6 @@ Handsontable.renderers.registerRenderer(
     Handsontable.renderers.TextRenderer(hotInstance, TD, ...rest);
 
     TD.style.fontWeight = "bold";
-    // TD.style.color = "green";
-    // TD.style.background = "#d7f1e1";
   }
 );
 

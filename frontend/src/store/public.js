@@ -1,4 +1,5 @@
 import axios from "axios";
+
 export default {
   state() {
     return {
@@ -25,27 +26,32 @@ export default {
     getP2(state) {
       return state.p2;
     },
+    getP3(state) {
+      return state.p3;
+    },
 
     getP5(state) {
       return state.p5;
-
     },
   },
 
   mutations: {
     setP1(state, payload) {
       state.p1 = payload;
-      console.log("payload-1", payload);
+      console.log("payload-1: ", payload);
     },
     setP2(state, payload) {
       state.p2 = payload;
-      console.log("payload-2", payload);
+      console.log("payload-2: ", payload);
     },
-    
+    setP3(state, payload) {
+      state.p3 = payload;
+      console.log("payload-3: ", payload);
+    },
+
     setP5(state, payload) {
       state.p5 = payload;
-      console.log("payload-5", payload);
-
+      console.log("payload-5: ", payload);
     },
   },
 
@@ -53,7 +59,7 @@ export default {
     async fetchP1({ commit }) {
       try {
         const response = await axios.get("https://boyo.mn/backend/p1");
-        console.log("Ankhaar2", response.data.a);
+        console.log("fetchP1: ", response.data.a);
         commit("setP1", response.data.a);
       } catch (error) {
         return error;
@@ -63,20 +69,28 @@ export default {
     async fetchP2({ commit }) {
       try {
         const response = await axios.get("https://boyo.mn/backend/p2");
-        console.log("fetchP2", response.data.a2);
+        console.log("fetchP2: ", response.data.a2);
         commit("setP2", response.data.a2);
       } catch (error) {
         return error;
       }
     },
 
+    async fetchP3({ commit }) {
+      try {
+        const response = await axios.get("https://boyo.mn/backend/p3");
+        console.log("fetchP3: ", response.data.a3);
+        commit("setP3", response.data.a3);
+      } catch (error) {
+        return error;
+      }
+    },
 
     async fetchP5({ commit }) {
       try {
         const response = await axios.get("https://boyo.mn/backend/p5");
-        console.log("fetchP5", response.data.a5);
+        console.log("fetchP5: ", response.data.a5);
         commit("setP5", response.data.a5);
-
       } catch (error) {
         return error;
       }
