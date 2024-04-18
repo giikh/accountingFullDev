@@ -41,6 +41,18 @@ export default {
     getP7(state) {
       return state.p7;
     },
+    getP8(state) {
+      return state.p8;
+    },
+    getP9(state) {
+      return state.p9;
+    },
+    getP11(state) {
+      return state.p11;
+    },
+    getP12(state) {
+      return state.p12;
+    },
   },
 
   mutations: {
