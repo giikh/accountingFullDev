@@ -47,6 +47,9 @@ export default {
     getP9(state) {
       return state.p9;
     },
+    getP10(state) {
+      return state.p10;
+    },
     getP11(state) {
       return state.p11;
     },

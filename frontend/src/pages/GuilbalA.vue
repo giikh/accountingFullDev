@@ -35,7 +35,7 @@ export default {
     onMounted(async () => {
       try {
         await store.dispatch("fetchP6");
-        data.value = store.getters.get6;
+        data.value = store.getters.getP6;
         console.log("data", data.value.length);
       } catch (error) {
         return error;
