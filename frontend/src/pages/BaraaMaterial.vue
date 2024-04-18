@@ -234,7 +234,6 @@ export default defineComponent({
           { row: 1, col: 0, rowspan: 1, colspan: 14 },
           { row: 2, col: 8, rowspan: 1, colspan: 6 },
           { row: 3, col: 8, rowspan: 1, colspan: 6 },
-
           { row: 4, col: 5, rowspan: 1, colspan: 3 },
           { row: 4, col: 8, rowspan: 1, colspan: 3 },
           { row: 4, col: 11, rowspan: 1, colspan: 3 },
