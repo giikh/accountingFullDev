@@ -1,84 +1,55 @@
 <template>
-    <div id="example" class="container">
-      <h2 class="title">ОРЛОГЫН ДЭЛГЭРЭНГҮЙ ТАЙЛАН</h2>
-      <hot-table
-        ref="hotTableComponent"
-        :data="data"
-        :settings="hotSettings"
-        class="custom-hot-table"
-      ></hot-table>
-  
-      <div class="additional-info">
-        <p><strong>Захирал:</strong> ...............................................................</p>
-        <p><strong>Ерөнхий нягтлан бодогч:</strong> ...............................................................</p>
-      </div>
-    </div>
-  </template>
-  
-  <script>
-  import { defineComponent } from "vue";
-  import { HotTable } from "@handsontable/vue3";
-  import { registerAllModules } from "handsontable/registry";
-  import "handsontable/dist/handsontable.full.css";
-  
-  // register Handsontable's modules
-  registerAllModules();
-  
-  export default defineComponent({
-    data() {
-      return {
-        data: [
-          ["", "", "ОРЛОГЫН ДЭЛГЭРЭНГҮЙ ТАЙЛАН", "", ""],
-          ["( Аж ахуйн нэгж, байгууллагын нэр )", "", "", "", ""],
-          ["Мөрийн дугаар", "ҮЗҮҮЛЭЛТ", "2016 оны 12-р сарын 31", "2017 оны 06-р сарын 30"],
-          ["1", "Борлуулалтын орлого (цэвэр)", "", "-"],
-          ["2", "Борлуулалтын өртөг", "", "-"],
-          ["3", "Нийт ашиг ( алдагдал )", "-", "-"],
-          ["4", "Түрээсийн орлого", "", "-"],
-          ["5", "Хүүний орлого", "", "-"],
-          ["6", "Ногдол ашгийн орлого", "", "-"],
-          ["7", "Эрхийн шимтгэлийн орлого", "", "-"],
-          ["8", "Бусад орлого", "", "-"],
-          ["9", "Борлуулалт, маркетингийн зардал", "", "-"],
-          ["10", "Ерөнхий ба удирдлагын зардал", "", "-"],
-          ["11", "Санхүүгийн зардал", "", "-"],
-          ["12", "Бусад зардал", "", "-"],
-          ["13", "Гадаад валютын ханшийн зөрүүний олз (гарз)", "", "-"],
-          ["14", "Үндсэн хөрөнгө данснаас хассаны олз (гарз)", "", "-"],
-          ["15", "Биет бус хөрөнгө данснаас хассаны олз (гарз)", "", "-"],
-          ["16", "Хөрөнгө оруулалт борлуулснаас үүссэн олз (гарз)", "", "-"],
-          ["17", "Бусад ашиг ( алдагдал )", "", "-"],
-          ["18", "Татвар төлөхийн өмнөх ашиг ( алдагдал )", "-", "-"],
-          ["19", "Орлогын татварын зардал", "", "-"],
-          ["20", "Татварын дараах ашиг ( алдагдал )", "-", "-"],
-          ["21", "Зогсоосон үйл ажиллагааны татварын дараах ашиг ( алдагдал )", "", "-"],
-          ["22", "Тайлант үеийн цэвэр ашиг ( алдагдал )", "-", "-"],
-          ["23", "Бусад дэлгэрэнгүй орлого", "", "-"],
-          ["", "Хөрөнгийн дахин үнэлгээний нэмэгдлийн зөрүү", "", "-"],
-          ["", "Гадаад валютын хөрвүүлэлтийн зөрүү", "", "-"],
-          ["", "Бусад олз (гарз)", "", "-"],
-          ["24", "Орлогын нийт дүн", "", "-"],
-          ["25", "Нэгж хувьцаанд ногдох суурь ашиг ( алдагдал )", "", "-"]
-        ]
-      };
-    },
-    components: {
-      HotTable
-    }
-  });
-  </script>
-  
-  <style>
-  .container {
-    text-align: center; /* Center align content */
+  <div v-if="data">
+    <hot-table :settings="hotSettings" :data="data" class="custom-hot-table">
+    </hot-table>
+  </div>
+</template>
+
+<script>
+import { ref, onMounted } from "vue";
+import { useStore } from "vuex";
+import { HotTable } from "@handsontable/vue3";
+import { registerAllModules } from "handsontable/registry";
+import Handsontable from "handsontable";
+import "handsontable/dist/handsontable.full.css";
+
+Handsontable.renderers.registerRenderer(
+  "customStylesRenderer",
+  (hotInstance, TD, ...rest) => {
+    Handsontable.renderers.TextRenderer(hotInstance, TD, ...rest);
+    TD.style.fontWeight = "bold";
   }
-  
-  .title {
-    font-size: 24px; /* Increase font size */
-  }
-  
-  .additional-info {
-    margin-top: 20px;
-  }
-  </style>
-  
+);
+
+registerAllModules();
+
+export default {
+  name: "Ct_2",
+  components: {
+    HotTable,
+  },
+  setup() {
+    const store = useStore();
+    const data = ref();
+
+    onMounted(async () => {
+      try {
+        await store.dispatch("fetchP9");
+        data.value = store.getters.getP9;
+        console.log("data", data.value.length);
+      } catch (error) {
+        return error;
+      }
+    });
+
+    const hotSettings = {
+      licenseKey: "non-commercial-and-evaluation",
+    };
+
+    return {
+      data,
+      hotSettings,
+    };
+  },
+};
+</script>
