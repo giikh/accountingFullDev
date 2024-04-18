@@ -8,7 +8,7 @@ const cookieParser = require("cookie-parser");
 // const useragent = require("useragent");
 // const session = require("express-session");
 
-const pageRouter = require("../api/page/pageParameters");
+const pageRouter = require("./api/page/pageParameters");
 
 const app = express();
 
