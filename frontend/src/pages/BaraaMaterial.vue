@@ -17,7 +17,6 @@ Handsontable.renderers.registerRenderer(
   "customStylesRenderer",
   (hotInstance, TD, ...rest) => {
     Handsontable.renderers.TextRenderer(hotInstance, TD, ...rest);
-
     TD.style.fontWeight = "bold";
   }
 );
