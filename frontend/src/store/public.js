@@ -29,6 +29,9 @@ export default {
     getP3(state) {
       return state.p3;
     },
+    getP4(state) {
+      return state.p4;
+    },
 
     getP5(state) {
       return state.p5;
@@ -47,6 +50,10 @@ export default {
     setP3(state, payload) {
       state.p3 = payload;
       console.log("payload-3: ", payload);
+    },
+    setP4(state, payload) {
+      state.p4 = payload;
+      console.log("payload-4: ", payload);
     },
 
     setP5(state, payload) {
@@ -81,6 +88,15 @@ export default {
         const response = await axios.get("https://boyo.mn/backend/p3");
         console.log("fetchP3: ", response.data.a3);
         commit("setP3", response.data.a3);
+      } catch (error) {
+        return error;
+      }
+    },
+    async fetchP4({ commit }) {
+      try {
+        const response = await axios.get("https://boyo.mn/backend/p4");
+        console.log("fetchP4: ", response.data.a4);
+        commit("setP4", response.data.a4);
       } catch (error) {
         return error;
       }

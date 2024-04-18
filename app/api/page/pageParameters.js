@@ -620,6 +620,12 @@ const p3 = [
   ["", "", "", "", "", "", "  222,465,600.0 ", "", "", "", "  12,261,200.55  "],
 ];
 
+const p4 = [
+  ["Guilgeenii dugaar", "Debit dans", "Credit dans", "Ognoo", "Dun"],
+  [1, "Mungun hurungu", "Banknii zeel", "1/1/2021", 1500000],
+  [2, "Avlaga", "Bor.orlogo", "1/1/2021", 500000],
+];
+
 router.get("/p1", (req, res) => {
   res.json({ a: p1 });
 });
@@ -630,6 +636,10 @@ router.get("/p2", (req, res) => {
 
 router.get("/p3", (req, res) => {
   res.json({ a3: p3 });
+});
+
+router.get("/p4", (req, res) => {
+  res.json({ a4: p4 });
 });
 
 router.get("/p5", (req, res) => {

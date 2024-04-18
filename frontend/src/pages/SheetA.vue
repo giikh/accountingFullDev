@@ -1,64 +1,55 @@
 <template>
-  <div id="example">
-    <hot-table
-      ref="hotTableComponent"
-      :data="data"
-      :settings="hotSettings"
-      class="custom-hot-table" 
-    ></hot-table>
+  <div v-if="data">
+    <hot-table :settings="hotSettings" :data="data" class="custom-hot-table">
+    </hot-table>
   </div>
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { ref, onMounted } from "vue";
+import { useStore } from "vuex";
 import { HotTable } from "@handsontable/vue3";
 import { registerAllModules } from "handsontable/registry";
+import Handsontable from "handsontable";
 import "handsontable/dist/handsontable.full.css";
 
-// register Handsontable's modules
+Handsontable.renderers.registerRenderer(
+  "customStylesRenderer",
+  (hotInstance, TD, ...rest) => {
+    Handsontable.renderers.TextRenderer(hotInstance, TD, ...rest);
+    TD.style.fontWeight = "bold";
+  }
+);
+
 registerAllModules();
 
-export default defineComponent({
-  data() {
-    return {
-      data: [
-        [
-          "Guilgeenii dugaar",
-          "Debit dans",
-          "Credit dans",
-          "Ognoo",
-          "Dun",
-        ],
-        [
-          1,
-          "Mungun hurungu",
-          "Banknii zeel",
-          "1/1/2021",
-          1500000,
-        ],
-        [
-        2,
-          "Avlaga",
-          "Bor.orlogo",
-          "1/1/2021",
-          500000,
-        ],
-      ],
-    };
-  },
+export default {
+  name: "SheetA",
   components: {
     HotTable,
   },
-});
+  setup() {
+    const store = useStore();
+    const data = ref();
+
+    onMounted(async () => {
+      try {
+        await store.dispatch("fetchP4");
+        data.value = store.getters.getP4;
+        console.log("data", data.value.length);
+      } catch (error) {
+        return error;
+      }
+    });
+
+    const hotSettings = {
+      licenseKey: "non-commercial-and-evaluation",
+    };
+
+    return {
+      data,
+      hotSettings,
+    };
+  },
+};
 </script>
-
-<style>
-.custom-hot-table .htCore td,
-.custom-hot-table .htCore th {
-  border: 1; /* Remove borders from cells */
-}
-
-.custom-hot-table .htCore {
-  border: 1px solid black; /* Add border to the table */
-}
-</style>
