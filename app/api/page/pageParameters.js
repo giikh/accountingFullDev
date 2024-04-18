@@ -1,7 +1,5 @@
 const { Router } = require("express");
 const p5Table = require("../../p5/table");
-// const TasksTable = require("../../todo-tasks/table");
-// const { authenticated } = require("./helper");
 
 const router = new Router();
 
