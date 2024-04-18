@@ -1,32 +1,15 @@
 <template>
   <div
-    class="
-      flex flex-col
-      items-center
-      justify-center
-      py-8
-      gap-12
-      min-h-screen
-      bg-lime-500
-    "
+    class="flex flex-col items-center justify-center py-8 gap-12 min-h-screen bg-lime-500"
   >
-    <Header :text="currentValue || 0 " />
+    <Header :text="currentValue || 0" />
     <div class="bg-indigo-300 w-80 p-5 rounded space-y-4 max-w-[300px]">
       <div class="bg-white p-4 rounded text-xl font-medium text-right">
         {{ currentValue || 0 }}
       </div>
       <div class="grid grid-cols-4 gap-2">
         <button
-          class="
-            text-lg text-center
-            font-medium
-            bg-slate-400
-            rounded
-            py-2
-            hover:bg-slate-300
-            transition-all
-            duration-75         
-          "
+          class="text-lg text-center font-medium bg-slate-400 rounded py-2 hover:bg-slate-300 transition-all duration-75"
           :class="{
             'bg-slate-200': ['C', '*', '/', '-', '+', '%', '=', '+/-'].includes(
               number
