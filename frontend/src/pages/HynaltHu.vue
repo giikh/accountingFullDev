@@ -1,66 +1,55 @@
 <template>
-
-  <div id="example">
-    <hot-table
-      ref="hotTableComponent"
-      :data="data"
-      :settings="hotSettings"
-      class="custom-hot-table" 
-    ></hot-table>
+  <div v-if="data">
+    <hot-table :settings="hotSettings" :data="data" class="custom-hot-table">
+    </hot-table>
   </div>
-
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { ref, onMounted } from "vue";
+import { useStore } from "vuex";
 import { HotTable } from "@handsontable/vue3";
 import { registerAllModules } from "handsontable/registry";
+import Handsontable from "handsontable";
 import "handsontable/dist/handsontable.full.css";
+
+Handsontable.renderers.registerRenderer(
+  "customStylesRenderer",
+  (hotInstance, TD, ...rest) => {
+    Handsontable.renderers.TextRenderer(hotInstance, TD, ...rest);
+    TD.style.fontWeight = "bold";
+  }
+);
 
 registerAllModules();
 
-export default defineComponent({
-  data() {
-    return {
-      data: [
-        ["Д/д", "Дүн", "Дебит / Кредит", ""],
-        [1, 10000, 10000, "-"],
-        [2, 5000, 5000, "-"],
-        [3, 50, 50, "-"],
-        [4, 35958996, 35958996, "-"],
-        [5, 10082811, 10082811, "-"],
-        [6, 27386692, 27386692, "-"],
-        [7, 3423336, 3423336, "-"],
-        ["COST IMPORT1", 136000, 136000, "-"],
-        ["COST IMPORT2", 710769, 710769, "-"],
-        ["COST IMPORT3", 17769, 17769, "-"],
-        ["COST IMPORT4", 14215, 14215, "-"],
-        ["COST IMPORT5", 10662, 10662, "-"],
-        ["COST IMPORT6", 108218, 108218, "-"],
-        ["FA1", 222465600, 222465600, "-"],
-        ["FA2", 12261201, 12261201, "-"],
-        ["SALES1", 204000, 204000, "-"],
-        ["SALES2", 1066154, 1066154, "-"],
-        ["SALES3", 26654, 26654, "-"],
-        ["SALES4", 21323, 21323, "-"],
-        ["SALES5", 15992, 15992, "-"],
-      ],
-    };
-  },
+export default {
+  name: "HynaltHu",
   components: {
     HotTable,
   },
-});
+  setup() {
+    const store = useStore();
+    const data = ref();
+
+    onMounted(async () => {
+      try {
+        await store.dispatch("fetchP2");
+        data.value = store.getters.getP2;
+        console.log("data", data.value.length);
+      } catch (error) {
+        return error;
+      }
+    });
+
+    const hotSettings = {
+      licenseKey: "non-commercial-and-evaluation",
+    };
+
+    return {
+      data,
+      hotSettings,
+    };
+  },
+};
 </script>
-
-
-<style>
-.custom-hot-table .htCore td,
-.custom-hot-table .htCore th {
-  border: 1; /* Remove borders from cells */
-}
-
-.custom-hot-table .htCore {
-  border: 1px solid black; /* Add border to the table */
-}
-</style>
