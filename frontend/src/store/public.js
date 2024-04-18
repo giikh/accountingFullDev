@@ -72,6 +72,7 @@ export default {
   mutations: {
     setP1(state, payload) {
       state.p1 = payload;
+      console.log("Ankhaar", state.p1);
     },
 
     setUserLogin(state, payload) {
@@ -112,7 +113,7 @@ export default {
   },
 
   actions: {
-    async fetchP1({ commit }) {
+    async fetchP1 ({ commit }) {
       try {
         const response = await fetch("/backend/p1");
         commit("setP1", response.data);
