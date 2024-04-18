@@ -32,7 +32,7 @@ app.use(cookieParser());
 app.use("/backend", pageRouter);
 
 app.get("/*", function (req, res) {
-  res.sendFile(path.join(__dirname, "dist", "index.html"));
+  res.sendFile(path.join(__dirname, "../dist", "index.html"));
 });
 
 module.exports = app;
