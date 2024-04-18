@@ -11,6 +11,7 @@ export default {
       hostUser: [],
       product: {},
 
+
       p1: [
         [
           "Д.д",
@@ -349,6 +350,10 @@ export default {
   },
 
   getters: {
+    getP1(state) {
+      return state.p1;
+    },
+
     getUserLogin(state) {
       return state.userLogin;
     },
