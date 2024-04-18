@@ -1,17 +1,7 @@
-import axios from 'axios';
+import axios from "axios";
 export default {
   state() {
     return {
-      userLogin: [],
-      userRegister: [],
-      userByEmail: [],
-      newsList: [],
-      newsById: [],
-      newsComment: [],
-      hostPlan: [],
-      hostUser: [],
-      product: {},
-
       p1: [],
       p2: [],
       p3: [],
@@ -32,89 +22,24 @@ export default {
     getP1(state) {
       return state.p1;
     },
-
-    getUserLogin(state) {
-      return state.userLogin;
-    },
-
-    getUserRegister(state) {
-      return state.userRegister;
-    },
-
-    getUserByEmail(state) {
-      return state.userByEmail;
-    },
-
-    getNewsList(state) {
-      return state.newsList;
-    },
-
-    getNewsById(state) {
-      return state.newsById;
-    },
-
-    getNewsComment(state) {
-      return state.newsComment;
-    },
-
-    getHostPlan(state) {
-      return state.hostPlan;
-    },
-
-    getHostUser(state) {
-      return state.hostUser;
-    },
-
-    getProduct(state) {
-      return state.router;
+    getP2(state) {
+      return state.p2;
     },
   },
 
   mutations: {
     setP1(state, payload) {
       state.p1 = payload;
-      console.log("Ankhaar", payload);
+      console.log("payload-1", payload);
     },
-
-    setUserLogin(state, payload) {
-      state.userLogin = payload;
-    },
-
-    setUserRegister(state, payload) {
-      state.userRegister = payload;
-    },
-
-    setUserByEmail(state, payload) {
-      state.userByEmail = payload;
-    },
-
-    setNewsList(state, payload) {
-      state.newsList = payload;
-    },
-
-    setNewsById(state, payload) {
-      state.newsById = payload;
-    },
-
-    setNewsComment(state, payload) {
-      state.newsComment = payload;
-    },
-
-    setHostPlan(state, payload) {
-      state.hostPlan = payload;
-    },
-
-    setHostUser(state, payload) {
-      state.hostUser = payload;
-    },
-
-    setProduct(state, payload) {
-      state.router = payload;
+    setP2(state, payload) {
+      state.p2 = payload;
+      console.log("payload-2", payload);
     },
   },
 
   actions: {
-    async fetchP1 ({ commit }) {
+    async fetchP1({ commit }) {
       try {
         const response = await axios.get("https://boyo.mn/backend/p1");
         console.log("Ankhaar2", response.data.a);
@@ -124,10 +49,20 @@ export default {
       }
     },
 
-  //   const posts = await fetch('https://jsonplaceholder.typicode.com/posts')
-  // .then((response) => response.json());
-  // this.commit('setPosts', posts)
-  //   }
+    async fetchP2({ commit }) {
+      try {
+        const response = await axios.get("https://boyo.mn/backend/p2");
+        console.log("fetchP2", response.data.a2);
+        commit("setP2", response.data.a2);
+      } catch (error) {
+        return error;
+      }
+    },
+
+    //   const posts = await fetch('https://jsonplaceholder.typicode.com/posts')
+    // .then((response) => response.json());
+    // this.commit('setPosts', posts)
+    //   }
 
     //   async loginUser({ commit }, credentials) {
     //     try {
