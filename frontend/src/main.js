@@ -22,17 +22,4 @@ const app = createApp(App);
 app.use(router);
 app.use(store);
 
-// app.component("TsalinHuls", TsalinHuls);
-// app.component("BaraaMaterial", BaraaMaterial);
-// app.component("undsenHurungu", undsenHurungu);
-// app.component("HynaltHu", HynaltHu);
-// app.component("SheetA", SheetA);
-// app.component("JournalA", JournalA);
-// app.component("GuilbalA", GuilbalA);
-// app.component("Ct_1", Ct_1);
-// app.component("Ct_2", Ct_2);
-// app.component("Ct_3", Ct_3);
-// app.component("Ct_4", Ct_4);
-// app.component("DansHutlult", DansHutlult);
-
 app.mount("#app");
