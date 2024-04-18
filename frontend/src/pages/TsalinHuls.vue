@@ -6,15 +6,12 @@
 </template>
 
 <script>
-// import { defineComponent } from "vue";
 import { ref, onMounted } from "vue";
 import { useStore } from "vuex";
 import { HotTable } from "@handsontable/vue3";
 import { registerAllModules } from "handsontable/registry";
-// import Handsontable from 'handsontable';
 import "handsontable/dist/handsontable.full.css";
 
-// register Handsontable's modules
 registerAllModules();
 
 export default {
@@ -25,7 +22,6 @@ export default {
   setup() {
     const store = useStore();
     const data = ref();
-
 
     onMounted(async () => {
       try {

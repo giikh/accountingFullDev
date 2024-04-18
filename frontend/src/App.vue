@@ -20,16 +20,16 @@
   <RouterView />
 </template>
 
-<script>
+<!-- <script>
 
-export default {
-  data() {
-    return {
-      // activeComp: "",
-    };
-  },
-};
-</script>
+// export default {
+//   data() {
+//     return {
+//       // activeComp: "",
+//     };
+//   },
+// };
+// </script> -->
 <!-- 
 <style scoped>
 button {
