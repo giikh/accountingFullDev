@@ -1,4 +1,5 @@
 const { Router } = require("express");
+const p5Table = require("../p5/table");
 // const TasksTable = require("../../todo-tasks/table");
 // const { authenticated } = require("./helper");
 const router = new Router();
@@ -528,6 +529,11 @@ router.get("/p1", (req, res) => {
 
 router.get("/p2", (req, res) => {
   res.json({ a2: p2 });
+});
+
+router.get("/p5", (req, res) => {
+  p5Table.getP5()
+      .then((p5) => res.json({ p5 }));
 });
 
 // router.post("/getall", authenticated, (req, res, next) => {
