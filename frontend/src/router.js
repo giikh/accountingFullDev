@@ -1,6 +1,4 @@
 import { createRouter, createWebHistory } from "vue-router";
-// import Cookies from "js-cookie";
-// import jwt_decode from "jwt-decode";
 
 // import HomePage from "./pages/HomePage.vue";
 import TsalinHuls from "./pages/TsalinHuls.vue";

@@ -27,16 +27,16 @@ body {
   background-color: #999;
 }
 .nav {
-  height: 60px;
+  text-align: center;
+  padding: 10px;
+  height: 40px;
   background-color: #444;
   color: orange;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 .nav a {
-  float: left;
-  text-align: center;
-  margin: 10px;
-  padding: 10px;
+  /* float: left; */
+  margin: 20px;
 }
 
 .nav a:hover {
