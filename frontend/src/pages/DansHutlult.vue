@@ -1,8 +1,8 @@
 <template>
-  <div
-    class="flex flex-col items-center"
-    v-if="data"
-  >
+  <br />
+  <h1>12. Дансны төлөвлөгөө</h1>
+  <div class="flex flex-col items-center" v-if="data">
+    <h1>Working</h1>
     <hot-table :settings="hotSettings" :data="data" class="custom-hot-table">
     </hot-table>
   </div>
