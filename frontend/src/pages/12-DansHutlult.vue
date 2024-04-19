@@ -24,7 +24,7 @@ Handsontable.renderers.registerRenderer(
 registerAllModules();
 
 export default {
-  name: "HynaltHu",
+  name: "DansHutlult",
   components: {
     HotTable,
   },
@@ -34,8 +34,8 @@ export default {
 
     onMounted(async () => {
       try {
-        await store.dispatch("fetchP7");
-        data.value = store.getters.getP7;
+        await store.dispatch("fetchP12");
+        data.value = store.getters.getP12;
         console.log("data", data.value.length);
       } catch (error) {
         return error;

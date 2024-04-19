@@ -1,5 +1,7 @@
 <template>
+  <br />
   <div class="flex flex-col items-center" v-if="data">
+    <h1>6. Гүйлгээ баланс</h1>
     <hot-table :settings="hotSettings" :data="data" class="custom-hot-table">
     </hot-table>
   </div>

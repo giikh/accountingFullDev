@@ -1,5 +1,7 @@
 <template>
+  <br />
   <div class="flex flex-col items-center" v-if="data">
+    <h1>9. Ct_2</h1>
     <hot-table :settings="hotSettings" :data="data" class="custom-hot-table">
     </hot-table>
   </div>
@@ -24,7 +26,7 @@ Handsontable.renderers.registerRenderer(
 registerAllModules();
 
 export default {
-  name: "Ct_1",
+  name: "Ct_2",
   components: {
     HotTable,
   },
@@ -34,8 +36,8 @@ export default {
 
     onMounted(async () => {
       try {
-        await store.dispatch("fetchP8");
-        data.value = store.getters.getP8;
+        await store.dispatch("fetchP9");
+        data.value = store.getters.getP9;
         console.log("data", data.value.length);
       } catch (error) {
         return error;

@@ -1,5 +1,7 @@
 <template>
+  <br />
   <div class="flex flex-col items-center" v-if="data">
+    <h1>7. Хяналт</h1>
     <hot-table :settings="hotSettings" :data="data" class="custom-hot-table">
     </hot-table>
   </div>
@@ -24,7 +26,7 @@ Handsontable.renderers.registerRenderer(
 registerAllModules();
 
 export default {
-  name: "Ct_3",
+  name: "HynaltHu",
   components: {
     HotTable,
   },
@@ -34,8 +36,8 @@ export default {
 
     onMounted(async () => {
       try {
-        await store.dispatch("fetchP10");
-        data.value = store.getters.getP10;
+        await store.dispatch("fetchP7");
+        data.value = store.getters.getP7;
         console.log("data", data.value.length);
       } catch (error) {
         return error;
@@ -44,11 +46,6 @@ export default {
 
     const hotSettings = {
       licenseKey: "non-commercial-and-evaluation",
-      mergeCells: [
-        { row: 0, col: 0, rowspan: 1, colspan: 10 },
-        { row: 1, col: 0, rowspan: 1, colspan: 2 },
-      ],
-      cell: [{ row: 0, col: 0, className: "htCenter" }],
     };
 
     return {

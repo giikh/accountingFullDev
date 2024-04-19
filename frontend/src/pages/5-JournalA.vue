@@ -1,10 +1,13 @@
 <template>
-  <div
-    class="flex flex-col items-center"
-    v-if="data"
-  >
-    <hot-table :settings="hotSettings" :data="data" class="custom-hot-table">
-    </hot-table>
+  <br />
+  <div v-if="data">
+    <h1>5. Ерөнхий журнал</h1>
+    <hot-table
+      ref="hotTableComponent"
+      :data="data"
+      :settings="hotSettings"
+      class="custom-hot-table"
+    ></hot-table>
   </div>
 </template>
 
@@ -27,7 +30,7 @@ Handsontable.renderers.registerRenderer(
 registerAllModules();
 
 export default {
-  name: "DansHutlult",
+  name: "JournalA",
   components: {
     HotTable,
   },
@@ -37,8 +40,8 @@ export default {
 
     onMounted(async () => {
       try {
-        await store.dispatch("fetchP12");
-        data.value = store.getters.getP12;
+        await store.dispatch("fetchP5");
+        data.value = store.getters.getP5;
         console.log("data", data.value.length);
       } catch (error) {
         return error;

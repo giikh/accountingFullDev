@@ -1,5 +1,7 @@
 <template>
+  <br />
   <div class="flex flex-col items-center" v-if="data">
+    <h1>8. Ct_1</h1>
     <hot-table :settings="hotSettings" :data="data" class="custom-hot-table">
     </hot-table>
   </div>
@@ -10,12 +12,21 @@ import { ref, onMounted } from "vue";
 import { useStore } from "vuex";
 import { HotTable } from "@handsontable/vue3";
 import { registerAllModules } from "handsontable/registry";
+import Handsontable from "handsontable";
 import "handsontable/dist/handsontable.full.css";
+
+Handsontable.renderers.registerRenderer(
+  "customStylesRenderer",
+  (hotInstance, TD, ...rest) => {
+    Handsontable.renderers.TextRenderer(hotInstance, TD, ...rest);
+    TD.style.fontWeight = "bold";
+  }
+);
 
 registerAllModules();
 
 export default {
-  name: "TsalinHuls",
+  name: "Ct_1",
   components: {
     HotTable,
   },
@@ -25,23 +36,13 @@ export default {
 
     onMounted(async () => {
       try {
-        await store.dispatch("fetchP1");
-        data.value = store.getters.getP1;
+        await store.dispatch("fetchP8");
+        data.value = store.getters.getP8;
         console.log("data", data.value.length);
-      } 
-      catch (error) {
+      } catch (error) {
         return error;
       }
-      try {
-        await store.dispatch("fetchP12");
-        data.value = store.getters.getP12;
-        console.log("data", data.value.length);
-      }
-      
-      catch (error) {
-        return error;
-      }
-    });    
+    });
 
     const hotSettings = {
       licenseKey: "non-commercial-and-evaluation",
