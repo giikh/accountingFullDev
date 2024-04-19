@@ -1469,7 +1469,7 @@ router.get("/p11", (req, res) => {
 });
 
 router.get("/p12", (req, res) => {
-  p12Table.getP12().then((p12) => res.json({ p12 }));
+  p12Table.getP12().then((p12) => res.json({ a12: p12 }));
 });
 
 // router.post("/getall", authenticated, (req, res, next) => {
