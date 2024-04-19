@@ -152,7 +152,7 @@ export default {
     async fetchP5({ commit }) {
       try {
         const response = await axios.get("https://boyo.mn/backend/p5");
-        console.log("fetch: ", response);
+        console.log("fetchP5: ", response);
         commit("setP5", response.data.a5);
       } catch (error) {
         return error;

@@ -1,5 +1,10 @@
 <template>
+  <br />
+
+  <h1>12. Дансны төлөвлөгөө</h1>
+
   <div class="flex flex-col items-center" v-if="data">
+    <h1>12. Дансны төлөвлөгөө</h1>
     <hot-table :settings="hotSettings" :data="data" class="custom-hot-table">
     </hot-table>
   </div>
@@ -10,16 +15,7 @@ import { ref, onMounted } from "vue";
 import { useStore } from "vuex";
 import { HotTable } from "@handsontable/vue3";
 import { registerAllModules } from "handsontable/registry";
-import Handsontable from "handsontable";
 import "handsontable/dist/handsontable.full.css";
-
-Handsontable.renderers.registerRenderer(
-  "customStylesRenderer",
-  (hotInstance, TD, ...rest) => {
-    Handsontable.renderers.TextRenderer(hotInstance, TD, ...rest);
-    TD.style.fontWeight = "bold";
-  }
-);
 
 registerAllModules();
 
@@ -34,7 +30,9 @@ export default {
 
     onMounted(async () => {
       try {
+        console.log("p12-1 test");
         await store.dispatch("fetchP12");
+        console.log("p12-2 test");
         data.value = store.getters.getP12;
         console.log("data", data.value.length);
       } catch (error) {
