@@ -129,6 +129,16 @@ export default {
         return error;
       }
     },
+    async fetchP12 ({commit}){
+      try {
+        const response = await axios.get("https://boyo.mn/backend/p12");
+        console.log(response.data);
+        commit('setP12', response.data)
+      }
+      catch (error) {
+        return error;
+      }
+    },
 
     async fetchP3({ commit }) {
       try {
