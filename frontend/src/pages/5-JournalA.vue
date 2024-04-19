@@ -1,13 +1,9 @@
 <template>
   <br />
-  <div v-if="data">
+  <div class="flex flex-col items-center" v-if="data">
     <h1>5. Ерөнхий журнал</h1>
-    <hot-table
-      ref="hotTableComponent"
-      :data="data"
-      :settings="hotSettings"
-      class="custom-hot-table"
-    ></hot-table>
+    <hot-table :settings="hotSettings" :data="data" class="custom-hot-table">
+    </hot-table>
   </div>
 </template>
 
@@ -16,16 +12,7 @@ import { ref, onMounted } from "vue";
 import { useStore } from "vuex";
 import { HotTable } from "@handsontable/vue3";
 import { registerAllModules } from "handsontable/registry";
-import Handsontable from "handsontable";
 import "handsontable/dist/handsontable.full.css";
-
-Handsontable.renderers.registerRenderer(
-  "customStylesRenderer",
-  (hotInstance, TD, ...rest) => {
-    Handsontable.renderers.TextRenderer(hotInstance, TD, ...rest);
-    TD.style.fontWeight = "bold";
-  }
-);
 
 registerAllModules();
 
