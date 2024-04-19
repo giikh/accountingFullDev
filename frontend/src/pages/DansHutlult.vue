@@ -1,5 +1,8 @@
 <template>
-  <div v-if="data">
+  <div
+    class="flex flex-col items-center"
+    v-if="data"
+  >
     <hot-table :settings="hotSettings" :data="data" class="custom-hot-table">
     </hot-table>
   </div>
