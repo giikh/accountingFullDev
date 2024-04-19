@@ -33,13 +33,6 @@ export default {
       } catch (error) {
         return error;
       }
-      try {
-        await store.dispatch("fetchP12");
-        data.value = store.getters.getP12;
-        console.log("data", data.value.length);
-      } catch (error) {
-        return error;
-      }
     });
 
     const hotSettings = {

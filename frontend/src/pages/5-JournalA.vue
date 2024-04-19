@@ -1,6 +1,6 @@
 <template>
   <br />
-  <div class="flex flex-col items-center" v-if="data">
+  <div v-if="data">
     <h1>5. Ерөнхий журнал</h1>
     <hot-table
       ref="hotTableComponent"

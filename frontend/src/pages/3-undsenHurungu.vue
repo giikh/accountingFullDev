@@ -1,8 +1,7 @@
 <template>
   <br />
-  <h1>12. Дансны төлөвлөгөө</h1>
   <div class="flex flex-col items-center" v-if="data">
-    <h1>Working</h1>
+    <h1>3. Үндсэн хөрөнгө</h1>
     <hot-table :settings="hotSettings" :data="data" class="custom-hot-table">
     </hot-table>
   </div>
@@ -20,6 +19,7 @@ Handsontable.renderers.registerRenderer(
   "customStylesRenderer",
   (hotInstance, TD, ...rest) => {
     Handsontable.renderers.TextRenderer(hotInstance, TD, ...rest);
+
     TD.style.fontWeight = "bold";
   }
 );
@@ -27,7 +27,7 @@ Handsontable.renderers.registerRenderer(
 registerAllModules();
 
 export default {
-  name: "DansHutlult",
+  name: "undsenHurungu",
   components: {
     HotTable,
   },
@@ -37,8 +37,8 @@ export default {
 
     onMounted(async () => {
       try {
-        await store.dispatch("fetchP12");
-        data.value = store.getters.getP12;
+        await store.dispatch("fetchP3");
+        data.value = store.getters.getP3;
         console.log("data", data.value.length);
       } catch (error) {
         return error;
@@ -47,6 +47,8 @@ export default {
 
     const hotSettings = {
       licenseKey: "non-commercial-and-evaluation",
+      mergeCells: [{ row: 0, col: 8, rowspan: 1, colspan: 3 }],
+      cell: [{ row: 0, col: 8, className: "htCenter" }],
     };
 
     return {
@@ -56,3 +58,4 @@ export default {
   },
 };
 </script>
+y
