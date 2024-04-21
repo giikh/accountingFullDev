@@ -1,6 +1,6 @@
 <template>
   <br />
-  <p class="flex flex-col items-center">==========HomePage=========</p>
+  <p class="flex flex-col items-center">HomePage is empty</p>
   <!-- <h2><a href="./salary/">Цалингийн хүснэгт</a></h2>
   <h2><a href="./goods/">Бараа материал</a></h2>
   <h2><a href="./undsenHurungu/">Үндсэн хөрөнгө</a></h2>

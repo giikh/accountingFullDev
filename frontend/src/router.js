@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-// import HomePage from "./pages/HomePage.vue";
+import HomePage from "./pages/HomePage.vue";
 import TsalinHuls from "./pages/1-TsalinHuls.vue";
 import BaraaMaterial from "./pages/2-BaraaMaterial.vue";
 import undsenHurungu from "./pages/3-undsenHurungu.vue";
@@ -17,12 +17,12 @@ import DansHutlult from "./pages/12-DansHutlult.vue";
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    // {
-    //   path: "/",
-    //   // name: "Home",
-    //   component: HomePage,
-    //   // meta: { title: "Нүүр" },
-    // },
+    {
+      path: "/",
+      // name: "Home",
+      component: HomePage,
+      // meta: { title: "Нүүр" },
+    },
     {
       path: "/salary",
       name: "Salary",
