@@ -1,7 +1,8 @@
 <template>
   <br />
-
-  <h1>12. Дансны төлөвлөгөө</h1>
+  <div class="flex flex-col items-center text-red-500" v-if="!data">
+    <h1>Мэдээлэл олдсонгүй!!!</h1>
+  </div>
 
   <div class="flex flex-col items-center" v-if="data">
     <h1>12. Дансны төлөвлөгөө</h1>

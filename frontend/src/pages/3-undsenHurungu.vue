@@ -1,5 +1,9 @@
 <template>
   <br />
+  <div class="flex flex-col items-center text-red-500" v-if="!data">
+    <h1>Мэдээлэл олдсонгүй!!!</h1>
+  </div>
+
   <div class="flex flex-col items-center" v-if="data">
     <h1>3. Үндсэн хөрөнгө</h1>
     <hot-table :settings="hotSettings" :data="data" class="custom-hot-table">
