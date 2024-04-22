@@ -1,11 +1,8 @@
 const { Router } = require("express");
 const p5Table = require("../../p5/table");
-<<<<<<< HEAD
-=======
 const p12Table = require("../../p12/table");
 // const TasksTable = require("../../todo-tasks/table");
 // const { authenticated } = require("./helper");
->>>>>>> origin/main
 
 const router = new Router();
 
