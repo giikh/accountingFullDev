@@ -1,30 +1,28 @@
 import { createRouter, createWebHistory } from "vue-router";
-// import Cookies from "js-cookie";
-// import jwt_decode from "jwt-decode";
 
-// import HomePage from "./pages/HomePage.vue";
-import TsalinHuls from "./pages/TsalinHuls.vue";
-import BaraaMaterial from "./pages/BaraaMaterial.vue";
-import undsenHurungu from "./pages/undsenHurungu.vue";
-import SheetA from "./pages/SheetA.vue";
-import JournalA from "./pages/JournalA.vue";
-import GuilbalA from "./pages/GuilbalA.vue";
-import Hynalt from "./pages/HynaltHu.vue";
-import Ct_1 from "./pages/Ct_1.vue";
-import Ct_2 from "./pages/Ct_2.vue";
-import Ct_3 from "./pages/Ct_3.vue";
-import Ct_4 from "./pages/Ct_4.vue";
-import DansHutlult from "./pages/DansHutlult.vue";
+import HomePage from "./pages/HomePage.vue";
+import TsalinHuls from "./pages/1-TsalinHuls.vue";
+import BaraaMaterial from "./pages/2-BaraaMaterial.vue";
+import undsenHurungu from "./pages/3-undsenHurungu.vue";
+import SheetA from "./pages/4-SheetA.vue";
+import JournalA from "./pages/5-JournalA.vue";
+import GuilbalA from "./pages/6-GuilbalA.vue";
+import Hynalt from "./pages/7-HynaltHu.vue";
+import Ct_1 from "./pages/8-Ct_1.vue";
+import Ct_2 from "./pages/9-Ct_2.vue";
+import Ct_3 from "./pages/10-Ct_3.vue";
+import Ct_4 from "./pages/11-Ct_4.vue";
+import DansHutlult from "./pages/12-DansHutlult.vue";
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    // {
-    //   path: "/",
-    //   // name: "Home",
-    //   component: HomePage,
-    //   // meta: { title: "Нүүр" },
-    // },
+    {
+      path: "/",
+      // name: "Home",
+      component: HomePage,
+      // meta: { title: "Нүүр" },
+    },
     {
       path: "/salary",
       name: "Salary",

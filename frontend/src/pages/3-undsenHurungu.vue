@@ -1,5 +1,11 @@
 <template>
-  <div v-if="data">
+  <br />
+  <div class="flex flex-col items-center text-red-500" v-if="!data">
+    <h1>Мэдээлэл олдсонгүй!!!</h1>
+  </div>
+
+  <div class="flex flex-col items-center" v-if="data">
+    <h1>3. Үндсэн хөрөнгө</h1>
     <hot-table :settings="hotSettings" :data="data" class="custom-hot-table">
     </hot-table>
   </div>
@@ -17,6 +23,7 @@ Handsontable.renderers.registerRenderer(
   "customStylesRenderer",
   (hotInstance, TD, ...rest) => {
     Handsontable.renderers.TextRenderer(hotInstance, TD, ...rest);
+
     TD.style.fontWeight = "bold";
   }
 );
@@ -24,7 +31,7 @@ Handsontable.renderers.registerRenderer(
 registerAllModules();
 
 export default {
-  name: "Ct_1",
+  name: "undsenHurungu",
   components: {
     HotTable,
   },
@@ -34,8 +41,8 @@ export default {
 
     onMounted(async () => {
       try {
-        await store.dispatch("fetchP8");
-        data.value = store.getters.getP8;
+        await store.dispatch("fetchP3");
+        data.value = store.getters.getP3;
         console.log("data", data.value.length);
       } catch (error) {
         return error;
@@ -44,6 +51,8 @@ export default {
 
     const hotSettings = {
       licenseKey: "non-commercial-and-evaluation",
+      mergeCells: [{ row: 0, col: 8, rowspan: 1, colspan: 3 }],
+      cell: [{ row: 0, col: 8, className: "htCenter" }],
     };
 
     return {
@@ -53,3 +62,4 @@ export default {
   },
 };
 </script>
+y
