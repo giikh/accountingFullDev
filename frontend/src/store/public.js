@@ -41,6 +41,21 @@ export default {
     getP7(state) {
       return state.p7;
     },
+    getP8(state) {
+      return state.p8;
+    },
+    getP9(state) {
+      return state.p9;
+    },
+    getP10(state) {
+      return state.p10;
+    },
+    getP11(state) {
+      return state.p11;
+    },
+    getP12(state) {
+      return state.p12;
+    },
   },
 
   mutations: {
@@ -111,6 +126,16 @@ export default {
         console.log("fetchP2: ", response.data.a2);
         commit("setP2", response.data.a2);
       } catch (error) {
+        return error;
+      }
+    },
+    async fetchP12 ({commit}){
+      try {
+        const response = await axios.get("https://boyo.mn/backend/p12");
+        console.log(response.data);
+        commit('setP12', response.data)
+      }
+      catch (error) {
         return error;
       }
     },
