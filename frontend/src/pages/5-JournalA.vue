@@ -3,9 +3,10 @@
   <div class="flex flex-col items-center text-red-500" v-if="!data">
     <h1>Мэдээлэл олдсонгүй!!!</h1>
   </div>
-  <div class="flex flex-col items-center">
+  <div class="flex flex-col items-center" v-if="data1">
     <hot-table
       :settings="hotSettingsInsertData"
+      :data="data1"
       ref="hotRef"
       class="bg-black text-gray-900"
     ></hot-table>
@@ -79,7 +80,9 @@ export default {
   setup() {
     const store = useStore();
     const data = ref();
-    const hotRef = ref(null);
+    const data1 = ref([[], []]);
+
+    const hotRef = ref();
     // async
     const insertUpdateDeleteTasks = (data) => {
       try {
@@ -126,7 +129,6 @@ export default {
       licenseKey: "non-commercial-and-evaluation",
       colHeader: true,
       minRows: 2,
-      maxRows: 2,
       columns: [
         {
           title: "Д/Д",
@@ -241,16 +243,16 @@ export default {
             td.classList.add("htCenter", "htMiddle");
             td.style.background = "#FCFCF7";
             td.innerHTML =
-              row < hotSettingsInsertData.maxRows - 2
+              row < hotRef.value.hotInstance.countRows() - 2
                 ? ""
-                : row == hotSettingsInsertData.maxRows - 2
+                : row == hotRef.value.hotInstance.countRows() - 2
                 ? '<button class="plus-btn text-[#e7e7e7] bg-[#008cba] hover:bg-sky-800 font-bold rounded-md px-1">+</button>'
                 : '<button class="save-btn text-[#e7e7e7] bg-[#008cba] hover:bg-sky-800 font-bold rounded-md px-1">SAVE</button>';
 
             const addButton = td.querySelector(".plus-btn");
             if (addButton) {
               addButton.addEventListener("click", () => {
-                // hotRef.value.hotInstance.alter('insert_row');
+                hotRef.value.hotInstance.alter("insert_row_below", 1, 1);
               });
             }
 
@@ -275,6 +277,8 @@ export default {
 
     return {
       data,
+      data1,
+      hotRef,
       hotSettingsInsertData,
       hotSettings,
       addRow,
