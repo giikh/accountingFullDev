@@ -145,11 +145,21 @@ export default {
         {
           title: "Огноо",
           data: "1",
+          dateFormat: 'MM/DD/YYYY',
+          correctFormat: true,
+          defaultDate: '01/01/2024',
+          datePickerConfig: {
+          firstDay: 0,
+          showWeekNumber: true,
+          disableDayFn(date){
+            return date.getDay() === 0 || date.getDay() === 6;
+          },
           renderer: (instance, td, row, col, prop, value) => {
             td.innerHTML = value;
             td.style.background = "#FCFCF7";
             td.style.color = "black";
           },
+        },
         },
         {
           title: "Дансны дугаар",
