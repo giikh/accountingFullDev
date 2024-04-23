@@ -4,6 +4,9 @@
     <h1>Мэдээлэл олдсонгүй!!!</h1>
   </div>
   <div>
+    ANKHAR : {{ CellCoords.row }}
+  </div>
+  <div>
     <hot-table
       :settings="hotSettingsInsertData"
       ref="hotRef"
@@ -67,6 +70,7 @@ import { ref, onMounted } from "vue";
 import { useStore } from "vuex";
 import { HotTable } from "@handsontable/vue3";
 import { registerAllModules } from "handsontable/registry";
+import { CellCoords } from "handsontable";
 import "handsontable/dist/handsontable.full.css";
 
 registerAllModules();
@@ -103,6 +107,7 @@ export default {
 
     const hotSettings = {
       licenseKey: "non-commercial-and-evaluation",
+      colHeaders: ["Д/Д",	"Огноо", "Дансны дугаар",	"Дансны нэр",	"Дебит / Кредит",	"Харилцагч",	"Гүйлгээний утга", "Дүн", "МГТ-ын мөр"],
     };
 
     const rows = ref([["", "", "", "", ""]]);
@@ -111,15 +116,17 @@ export default {
       rows.value.push(["", "", "", "", ""]);
     };
 
+    // const a = true;
+
     const hotSettingsInsertData = {
       licenseKey: "non-commercial-and-evaluation",
       colHeader: true,
-      colWidths: [215, 310, 215, 215, 215],
-      minRows: 1,
-      maxRows: 1,
+      // colWidths: [,,,,,,,,,100],
+      minRows: 2,
+      maxRows: 5,
       columns: [
         {
-          title: "Категор",
+          title: "Д/Д",
           data: "0",
           // type: "dropdown",
           // source: [],
@@ -131,7 +138,7 @@ export default {
           },
         },
         {
-          title: "Ажил",
+          title: "Огноо",
           data: "1",
           renderer: (instance, td, row, col, prop, value) => {
             td.innerHTML = value;
@@ -140,7 +147,7 @@ export default {
           },
         },
         {
-          title: "Захиалагч",
+          title: "Дансны дугаар",
           data: "2",
           // type: "dropdown",
           // source: [],
@@ -152,7 +159,7 @@ export default {
           },
         },
         {
-          title: "Хариуцагч",
+          title: "Дансны нэр",
           data: "3",
           // type: "dropdown",
           // source: [],
@@ -164,15 +171,80 @@ export default {
           },
         },
         {
-          title: " ",
+          title: "Дебит / Кредит",
           data: "4",
+          // type: "dropdown",
+          // source: [],
+          // renderer: [],
+          renderer: (instance, td, row, col, prop, value) => {
+            td.innerHTML = value;
+            td.style.background = "#FCFCF7";
+            td.style.color = "black";
+          },
+        },
+        {
+          title: "Харилцагч",
+          data: "5",
+          // type: "dropdown",
+          // source: [],
+          // renderer: [],
+          renderer: (instance, td, row, col, prop, value) => {
+            td.innerHTML = value;
+            td.style.background = "#FCFCF7";
+            td.style.color = "black";
+          },
+        },
+        {
+          title: "Гүйлгээний утга",
+          data: "6",
+          // type: "dropdown",
+          // source: [],
+          // renderer: [],
+          renderer: (instance, td, row, col, prop, value) => {
+            td.innerHTML = value;
+            td.style.background = "#FCFCF7";
+            td.style.color = "black";
+          },
+        },
+        {
+          title: "Дүн",
+          data: "7",
+          // type: "dropdown",
+          // source: [],
+          // renderer: [],
+          renderer: (instance, td, row, col, prop, value) => {
+            td.innerHTML = value;
+            td.style.background = "#FCFCF7";
+            td.style.color = "black";
+          },
+        },
+        {
+          title: "МГТ-ын мөр",
+          data: "8",
+          // type: "dropdown",
+          // source: [],
+          // renderer: [],
+          renderer: (instance, td, row, col, prop, value) => {
+            td.innerHTML = value;
+            td.style.background = "#FCFCF7";
+            td.style.color = "black";
+          },
+        },
+        {
+          title: " ",
+          data: "9",
           readOnly: true,
-          renderer: async (instance, td) => {
+          renderer: async (instance, td, row) => {
             td.classList.add("htCenter", "htMiddle");
             td.style.background = "#FCFCF7";
             td.innerHTML =
-              '<button class="save-btn text-[#e7e7e7] bg-[#008cba] hover:bg-sky-800 font-bold rounded-md px-20">Нэмэх</button>';
-            const saveButton = td.querySelector(".save-btn");
+             row < hotSettingsInsertData.maxRows - 2 ? "" : row == hotSettingsInsertData.maxRows - 2 ? "+" : '<button class="save-btn text-[#e7e7e7] bg-[#008cba] hover:bg-sky-800 font-bold rounded-md px-1">SAVE</button>';
+
+            // td.innerHTML =
+            //   row !== hotSettingsInsertData.maxRows - 1
+            //     ? "+"
+            //     : '<button class="save-btn text-[#e7e7e7] bg-[#008cba] hover:bg-sky-800 font-bold rounded-md px-1">SAVE</button>';
+                const saveButton = td.querySelector(".save-btn");
             if (saveButton) {
               saveButton.addEventListener("click", async () => {
                 const test = JSON.parse(
@@ -192,6 +264,7 @@ export default {
     };
 
     return {
+      CellCoords,
       data,
       hotSettingsInsertData,
       hotSettings,
