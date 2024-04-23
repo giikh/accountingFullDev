@@ -3,10 +3,7 @@
   <div class="flex flex-col items-center text-red-500" v-if="!data">
     <h1>Мэдээлэл олдсонгүй!!!</h1>
   </div>
-  <div>
-    ANKHAR : {{ CellCoords.row }}
-  </div>
-  <div>
+  <div class="flex flex-col items-center">
     <hot-table
       :settings="hotSettingsInsertData"
       ref="hotRef"
@@ -70,7 +67,6 @@ import { ref, onMounted } from "vue";
 import { useStore } from "vuex";
 import { HotTable } from "@handsontable/vue3";
 import { registerAllModules } from "handsontable/registry";
-import { CellCoords } from "handsontable";
 import "handsontable/dist/handsontable.full.css";
 
 registerAllModules();
@@ -107,7 +103,17 @@ export default {
 
     const hotSettings = {
       licenseKey: "non-commercial-and-evaluation",
-      colHeaders: ["Д/Д",	"Огноо", "Дансны дугаар",	"Дансны нэр",	"Дебит / Кредит",	"Харилцагч",	"Гүйлгээний утга", "Дүн", "МГТ-ын мөр"],
+      colHeaders: [
+        "Д/Д",
+        "Огноо",
+        "Дансны дугаар",
+        "Дансны нэр",
+        "Дебит / Кредит",
+        "Харилцагч",
+        "Гүйлгээний утга",
+        "Дүн",
+        "МГТ-ын мөр",
+      ],
     };
 
     const rows = ref([["", "", "", "", ""]]);
@@ -116,14 +122,11 @@ export default {
       rows.value.push(["", "", "", "", ""]);
     };
 
-    // const a = true;
-
     const hotSettingsInsertData = {
       licenseKey: "non-commercial-and-evaluation",
       colHeader: true,
-      // colWidths: [,,,,,,,,,100],
       minRows: 2,
-      maxRows: 5,
+      maxRows: 2,
       columns: [
         {
           title: "Д/Д",
@@ -238,13 +241,20 @@ export default {
             td.classList.add("htCenter", "htMiddle");
             td.style.background = "#FCFCF7";
             td.innerHTML =
-             row < hotSettingsInsertData.maxRows - 2 ? "" : row == hotSettingsInsertData.maxRows - 2 ? "+" : '<button class="save-btn text-[#e7e7e7] bg-[#008cba] hover:bg-sky-800 font-bold rounded-md px-1">SAVE</button>';
+              row < hotSettingsInsertData.maxRows - 2
+                ? ""
+                : row == hotSettingsInsertData.maxRows - 2
+                ? '<button class="plus-btn text-[#e7e7e7] bg-[#008cba] hover:bg-sky-800 font-bold rounded-md px-1">+</button>'
+                : '<button class="save-btn text-[#e7e7e7] bg-[#008cba] hover:bg-sky-800 font-bold rounded-md px-1">SAVE</button>';
 
-            // td.innerHTML =
-            //   row !== hotSettingsInsertData.maxRows - 1
-            //     ? "+"
-            //     : '<button class="save-btn text-[#e7e7e7] bg-[#008cba] hover:bg-sky-800 font-bold rounded-md px-1">SAVE</button>';
-                const saveButton = td.querySelector(".save-btn");
+            const addButton = td.querySelector(".plus-btn");
+            if (addButton) {
+              addButton.addEventListener("click", () => {
+                // hotRef.value.hotInstance.alter('insert_row');
+              });
+            }
+
+            const saveButton = td.querySelector(".save-btn");
             if (saveButton) {
               saveButton.addEventListener("click", async () => {
                 const test = JSON.parse(
@@ -264,7 +274,6 @@ export default {
     };
 
     return {
-      CellCoords,
       data,
       hotSettingsInsertData,
       hotSettings,
