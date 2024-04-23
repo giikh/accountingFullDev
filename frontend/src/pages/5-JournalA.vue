@@ -145,22 +145,39 @@ export default {
         {
           title: "Огноо",
           data: "1",
-          dateFormat: 'MM/DD/YYYY',
+          type: "date",
+          dateFormat: "MM/DD/YYYY",
           correctFormat: true,
-          defaultDate: '01/01/2024',
+          defaultDate: "01/01/1900",
+          // datePicker additional options
+          // (see https://github.com/dbushell/Pikaday#configuration)
           datePickerConfig: {
-          firstDay: 0,
-          showWeekNumber: true,
-          disableDayFn(date){
-            return date.getDay() === 0 || date.getDay() === 6;
+            // First day of the week (0: Sunday, 1: Monday, etc)
+            firstDay: 0,
+            showWeekNumber: true,
+            disableDayFn(date) {
+              // Disable Sunday and Saturday
+              return date.getDay() === 0 || date.getDay() === 6;
+            },
           },
-          renderer: (instance, td, row, col, prop, value) => {
-            td.innerHTML = value;
-            td.style.background = "#FCFCF7";
-            td.style.color = "black";
-          },
+          // title: "Огноо",
+          // data: "1",
+          // // dateFormat: 'MM/DD/YYYY',
+          // // correctFormat: true,
+          // // defaultDate: '01/01/2024',
+          // // datePickerConfig: {
+          // // firstDay: 0,
+          // // showWeekNumber: true,
+          // // disableDayFn(date){
+          // //   return date.getDay() === 0 || date.getDay() === 6;
+          // // },
+          // renderer: (instance, td, row, col, prop, value) => {
+          //   td.innerHTML = value;
+          //   td.style.background = "#FCFCF7";
+          //   td.style.color = "black";
+          // },
         },
-        },
+
         {
           title: "Дансны дугаар",
           data: "2",
